@@ -105,8 +105,8 @@ GitHub from agent sessions: GraphQL is unavailable, so `gh issue create`,
 
 ## Known gaps / bootstrapping notes
 
-- `go.sum` is not committed yet (first commit was made from an environment
-  without module proxy access). CI runs `go mod tidy` first. Committing
-  `go.sum` and tightening CI is an open issue.
+- CI fails if `go mod tidy` changes `go.mod`/`go.sum`. Cloud agent sandboxes
+  may not reach the Go module proxy; if you change dependencies there, say so
+  in the PR so a human (or CI output) can supply the updated `go.sum`.
 - Score curves and grade thresholds are first guesses; calibrate with MLOptic
   buyers (issue: calibration).

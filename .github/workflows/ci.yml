@@ -7,7 +7,7 @@ on:
 
 jobs:
   test:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     services:
       postgres:
         image: postgres:16
@@ -22,16 +22,22 @@ jobs:
     env:
       DATABASE_URL: postgres://arribo:arribo@localhost:5432/arribo_test?sslmode=disable
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-go@v5
+      - uses: actions/checkout@v6
+      - uses: actions/setup-go@v6
         with:
           go-version: "1.25"
           cache: true
 
-      # Bootstrap: go.sum is not committed yet (see issue "Commit go.sum").
-      # Once it is, replace this with: go mod tidy && git diff --exit-code go.mod go.sum
-      - name: go mod tidy
-        run: go mod tidy
+      - name: go.mod / go.sum tidy
+        run: go mod tidy && git diff --exit-code go.mod go.sum
+
+      # TEMP (issue #1): print tidy output so go.sum can be committed from CI.
+      - name: dump tidy result
+        if: failure()
+        run: |
+          echo "=====GO.MOD====="; cat go.mod
+          echo "=====GO.SUM====="; cat go.sum
+          echo "=====END====="
 
       - name: gofmt
         run: test -z "$(gofmt -l .)" || (gofmt -l . && exit 1)
