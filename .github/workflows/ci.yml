@@ -25,19 +25,11 @@ jobs:
       - uses: actions/checkout@v6
       - uses: actions/setup-go@v6
         with:
-          go-version: "1.26"
+          go-version-file: go.mod
           cache: true
 
       - name: go.mod / go.sum tidy
         run: go mod tidy && git diff --exit-code go.mod go.sum
-
-      # TEMP (issue #1): print tidy output so go.sum can be committed from CI.
-      - name: dump tidy result
-        if: failure()
-        run: |
-          echo "=====GO.MOD====="; cat go.mod
-          echo "=====GO.SUM====="; cat go.sum
-          echo "=====END====="
 
       - name: gofmt
         run: test -z "$(gofmt -l .)" || (gofmt -l . && exit 1)
