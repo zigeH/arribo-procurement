@@ -285,7 +285,13 @@ func makeLine(rng *rand.Rand, s Persona, p *part, po domain.PurchaseOrder, lineN
 		late = 3 + rng.Intn(max(1, s.LateDaysMax-2))
 		if rng.Float64() < s.MoveDateP { // supplier pushes the date before it's due
 			moved := commit.AddDate(0, 0, late-rng.Intn(3))
+			// Moved 3 days before the original date, never before the order. [A]
+			changed := commit.AddDate(0, 0, -3)
+			if !changed.After(po.OrderDate) {
+				changed = truncDay(po.OrderDate).AddDate(0, 0, 1)
+			}
 			line.OriginalPromisedDate = &commit
+			line.PromiseChangedAt = &changed
 			line.PromisedDate = moved
 		}
 	}

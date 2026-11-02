@@ -21,8 +21,8 @@ Feature 1 is **supplier & PO scoring against the customer's own history**:
    (or from a cited source in `scoring.Policy`). Not enough data → `Score: nil`
    and say so. Do not fill gaps with "industry averages" from memory.
 2. **Every score has evidence** (PO number + line + the numbers used).
-   Benchmarks compare a supplier only with OTHER suppliers; lead time uses
-   repeat orders only; on-time uses the first confirmed date.
+   What each score is compared against (which suppliers, orders and dates)
+   is defined in `docs/scoring-methodology.md`.
 3. **No real customer data in git, in prompts to third parties, or in cloud
    agent sandboxes.** Use `evals/data/synthetic_mloptic.json`. Real sanitized
    exports live outside the repo (`evals/data/customer/` is gitignored).

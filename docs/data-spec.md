@@ -25,6 +25,7 @@ purchase orders. One row per **PO line** is easiest.
 | currency | yes | |
 | promised_date | yes | Supplier-confirmed delivery date (latest) |
 | original_promised_date | helpful | First date the supplier confirmed, if it was later changed (or a change log). Without it, a supplier that keeps moving dates looks punctual |
+| promise_changed_at | helpful | When the supplier moved the date. Without it, historical replays only show a move on lines already delivered by the as-of date |
 | spec fields | helpful | Material, diameter/size, tolerance, coating: lets us compare prices of single-sourced custom parts by spec |
 | payment_terms | optional | e.g. "Net 30", "30% deposit" |
 | incoterm | optional | e.g. FOB, EXW, DDP |

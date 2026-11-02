@@ -526,6 +526,7 @@
           "unit_price": 260.47,
           "promised_date": "2025-10-14T00:00:00Z",
           "original_promised_date": "2025-10-11T00:00:00Z",
+          "promise_changed_at": "2025-10-08T00:00:00Z",
           "receipts": [
             {
               "date": "2025-10-15T00:00:00Z",
@@ -1444,6 +1445,7 @@
           "unit_price": 320.81,
           "promised_date": "2025-08-07T00:00:00Z",
           "original_promised_date": "2025-07-19T00:00:00Z",
+          "promise_changed_at": "2025-07-16T00:00:00Z",
           "receipts": [
             {
               "date": "2025-07-31T00:00:00Z",
@@ -1467,6 +1469,7 @@
           "unit_price": 456,
           "promised_date": "2025-08-13T00:00:00Z",
           "original_promised_date": "2025-08-11T00:00:00Z",
+          "promise_changed_at": "2025-08-08T00:00:00Z",
           "receipts": [
             {
               "date": "2025-08-08T00:00:00Z",
@@ -1614,6 +1617,7 @@
           "unit_price": 128.06,
           "promised_date": "2025-10-21T00:00:00Z",
           "original_promised_date": "2025-10-05T00:00:00Z",
+          "promise_changed_at": "2025-10-02T00:00:00Z",
           "receipts": [
             {
               "date": "2025-10-21T00:00:00Z",
@@ -1644,6 +1648,7 @@
           "unit_price": 132.18,
           "promised_date": "2025-10-23T00:00:00Z",
           "original_promised_date": "2025-10-19T00:00:00Z",
+          "promise_changed_at": "2025-10-16T00:00:00Z",
           "receipts": [
             {
               "date": "2025-10-17T00:00:00Z",
@@ -1667,6 +1672,7 @@
           "unit_price": 145.62,
           "promised_date": "2025-11-03T00:00:00Z",
           "original_promised_date": "2025-10-26T00:00:00Z",
+          "promise_changed_at": "2025-10-23T00:00:00Z",
           "receipts": [
             {
               "date": "2025-10-29T00:00:00Z",
@@ -1702,6 +1708,7 @@
           "unit_price": 145.71,
           "promised_date": "2025-12-19T00:00:00Z",
           "original_promised_date": "2025-12-17T00:00:00Z",
+          "promise_changed_at": "2025-12-14T00:00:00Z",
           "receipts": [
             {
               "date": "2025-12-21T00:00:00Z",
@@ -1732,6 +1739,7 @@
           "unit_price": 325.95,
           "promised_date": "2025-12-29T00:00:00Z",
           "original_promised_date": "2025-12-11T00:00:00Z",
+          "promise_changed_at": "2025-12-08T00:00:00Z",
           "receipts": [
             {
               "date": "2025-12-29T00:00:00Z",
@@ -1750,6 +1758,7 @@
           "unit_price": 183.78,
           "promised_date": "2025-12-27T00:00:00Z",
           "original_promised_date": "2025-12-10T00:00:00Z",
+          "promise_changed_at": "2025-12-07T00:00:00Z",
           "receipts": [
             {
               "date": "2025-12-29T00:00:00Z",
@@ -1894,6 +1903,7 @@
           "unit_price": 142.78,
           "promised_date": "2026-04-26T00:00:00Z",
           "original_promised_date": "2026-04-19T00:00:00Z",
+          "promise_changed_at": "2026-04-16T00:00:00Z",
           "receipts": [
             {
               "date": "2026-04-19T00:00:00Z",
@@ -1917,6 +1927,7 @@
           "unit_price": 336.81,
           "promised_date": "2026-04-13T00:00:00Z",
           "original_promised_date": "2026-04-10T00:00:00Z",
+          "promise_changed_at": "2026-04-07T00:00:00Z",
           "receipts": [
             {
               "date": "2026-04-15T00:00:00Z",
@@ -1935,6 +1946,7 @@
           "unit_price": 471.76,
           "promised_date": "2026-04-16T00:00:00Z",
           "original_promised_date": "2026-04-05T00:00:00Z",
+          "promise_changed_at": "2026-04-02T00:00:00Z",
           "receipts": [
             {
               "date": "2026-04-16T00:00:00Z",
@@ -2290,6 +2302,7 @@
           "unit_price": 238.3,
           "promised_date": "2025-07-26T00:00:00Z",
           "original_promised_date": "2025-07-21T00:00:00Z",
+          "promise_changed_at": "2025-07-18T00:00:00Z",
           "receipts": [
             {
               "date": "2025-07-28T00:00:00Z",
@@ -2856,6 +2869,7 @@
           "unit_price": 62.69,
           "promised_date": "2026-04-08T00:00:00Z",
           "original_promised_date": "2026-04-04T00:00:00Z",
+          "promise_changed_at": "2026-04-01T00:00:00Z",
           "receipts": [
             {
               "date": "2026-04-08T00:00:00Z",
@@ -4189,6 +4203,7 @@
           "unit_price": 509.39,
           "promised_date": "2026-09-27T00:00:00Z",
           "original_promised_date": "2026-09-21T00:00:00Z",
+          "promise_changed_at": "2026-09-18T00:00:00Z",
           "receipts": [
             {
               "date": "2026-09-22T00:00:00Z",
@@ -4372,6 +4387,7 @@
           "unit_price": 266.69,
           "promised_date": "2026-01-25T00:00:00Z",
           "original_promised_date": "2026-01-13T00:00:00Z",
+          "promise_changed_at": "2026-01-10T00:00:00Z",
           "receipts": [
             {
               "date": "2026-01-25T00:00:00Z",
@@ -4680,6 +4696,7 @@
           "unit_price": 1037.4,
           "promised_date": "2026-05-06T00:00:00Z",
           "original_promised_date": "2026-05-03T00:00:00Z",
+          "promise_changed_at": "2026-04-30T00:00:00Z",
           "receipts": [
             {
               "date": "2026-05-08T00:00:00Z",
@@ -7524,6 +7541,7 @@
           "unit_price": 401.77,
           "promised_date": "2025-12-02T00:00:00Z",
           "original_promised_date": "2025-11-27T00:00:00Z",
+          "promise_changed_at": "2025-11-24T00:00:00Z",
           "receipts": [
             {
               "date": "2025-12-03T00:00:00Z",
@@ -10040,6 +10058,7 @@
           "unit_price": 73.77,
           "promised_date": "2025-07-18T00:00:00Z",
           "original_promised_date": "2025-07-14T00:00:00Z",
+          "promise_changed_at": "2025-07-11T00:00:00Z",
           "receipts": [
             {
               "date": "2025-07-18T00:00:00Z",
@@ -10325,6 +10344,7 @@
           "unit_price": 175.48,
           "promised_date": "2025-11-25T00:00:00Z",
           "original_promised_date": "2025-11-18T00:00:00Z",
+          "promise_changed_at": "2025-11-15T00:00:00Z",
           "receipts": [
             {
               "date": "2025-11-25T00:00:00Z",
@@ -10879,6 +10899,7 @@
           "unit_price": 318.43,
           "promised_date": "2026-06-15T00:00:00Z",
           "original_promised_date": "2026-06-12T00:00:00Z",
+          "promise_changed_at": "2026-06-09T00:00:00Z",
           "receipts": [
             {
               "date": "2026-06-17T00:00:00Z",
@@ -11368,6 +11389,7 @@
           "unit_price": 108.48,
           "promised_date": "2026-10-30T00:00:00Z",
           "original_promised_date": "2026-10-26T00:00:00Z",
+          "promise_changed_at": "2026-10-23T00:00:00Z",
           "receipts": [
             {
               "date": "2026-10-30T00:00:00Z",
@@ -11515,6 +11537,7 @@
           "unit_price": 505.88,
           "promised_date": "2025-08-07T00:00:00Z",
           "original_promised_date": "2025-08-06T00:00:00Z",
+          "promise_changed_at": "2025-08-03T00:00:00Z",
           "receipts": [
             {
               "date": "2025-08-09T00:00:00Z",
@@ -15095,6 +15118,7 @@
           "unit_price": 622.03,
           "promised_date": "2026-08-31T00:00:00Z",
           "original_promised_date": "2026-08-28T00:00:00Z",
+          "promise_changed_at": "2026-08-25T00:00:00Z",
           "receipts": [
             {
               "date": "2026-09-02T00:00:00Z",
@@ -15587,6 +15611,7 @@
           "unit_price": 97.32,
           "promised_date": "2025-10-16T00:00:00Z",
           "original_promised_date": "2025-10-07T00:00:00Z",
+          "promise_changed_at": "2025-10-04T00:00:00Z",
           "receipts": [
             {
               "date": "2025-10-17T00:00:00Z",
@@ -16492,6 +16517,7 @@
           "unit_price": 111.53,
           "promised_date": "2026-09-09T00:00:00Z",
           "original_promised_date": "2026-09-08T00:00:00Z",
+          "promise_changed_at": "2026-09-05T00:00:00Z",
           "receipts": [
             {
               "date": "2026-09-11T00:00:00Z",
@@ -17537,6 +17563,7 @@
           "unit_price": 261.65,
           "promised_date": "2026-10-21T00:00:00Z",
           "original_promised_date": "2026-10-17T00:00:00Z",
+          "promise_changed_at": "2026-10-14T00:00:00Z",
           "receipts": [
             {
               "date": "2026-10-21T00:00:00Z",
@@ -19466,6 +19493,7 @@
           "unit_price": 100.43,
           "promised_date": "2026-03-07T00:00:00Z",
           "original_promised_date": "2026-03-04T00:00:00Z",
+          "promise_changed_at": "2026-03-01T00:00:00Z",
           "receipts": [
             {
               "date": "2026-03-08T00:00:00Z",
@@ -21723,6 +21751,7 @@
           "unit_price": 58.77,
           "promised_date": "2026-02-01T00:00:00Z",
           "original_promised_date": "2026-01-27T00:00:00Z",
+          "promise_changed_at": "2026-01-24T00:00:00Z",
           "receipts": [
             {
               "date": "2026-02-01T00:00:00Z",
@@ -21754,6 +21783,7 @@
           "unit_price": 58.81,
           "promised_date": "2026-05-22T00:00:00Z",
           "original_promised_date": "2026-05-14T00:00:00Z",
+          "promise_changed_at": "2026-05-11T00:00:00Z",
           "receipts": [
             {
               "date": "2026-05-15T00:00:00Z",
@@ -21790,6 +21820,7 @@
           "unit_price": 59.04,
           "promised_date": "2026-08-21T00:00:00Z",
           "original_promised_date": "2026-08-13T00:00:00Z",
+          "promise_changed_at": "2026-08-10T00:00:00Z",
           "receipts": [
             {
               "date": "2026-08-21T00:00:00Z",
@@ -22569,6 +22600,7 @@
           "unit_price": 513.64,
           "promised_date": "2025-10-18T00:00:00Z",
           "original_promised_date": "2025-10-12T00:00:00Z",
+          "promise_changed_at": "2025-10-09T00:00:00Z",
           "receipts": [
             {
               "date": "2025-10-18T00:00:00Z",
@@ -24018,6 +24050,7 @@
           "unit_price": 496,
           "promised_date": "2026-08-11T00:00:00Z",
           "original_promised_date": "2026-08-07T00:00:00Z",
+          "promise_changed_at": "2026-08-04T00:00:00Z",
           "receipts": [
             {
               "date": "2026-08-12T00:00:00Z",
@@ -24528,6 +24561,7 @@
           "unit_price": 309.94,
           "promised_date": "2026-02-23T00:00:00Z",
           "original_promised_date": "2026-02-16T00:00:00Z",
+          "promise_changed_at": "2026-02-13T00:00:00Z",
           "receipts": [
             {
               "date": "2026-02-25T00:00:00Z",
@@ -24558,6 +24592,7 @@
           "unit_price": 434.5,
           "promised_date": "2026-05-03T00:00:00Z",
           "original_promised_date": "2026-05-01T00:00:00Z",
+          "promise_changed_at": "2026-04-28T00:00:00Z",
           "receipts": [
             {
               "date": "2026-04-28T00:00:00Z",
@@ -26596,7 +26631,8 @@
           "qty": 54,
           "unit_price": 608.67,
           "promised_date": "2026-11-20T00:00:00Z",
-          "original_promised_date": "2026-11-15T00:00:00Z"
+          "original_promised_date": "2026-11-15T00:00:00Z",
+          "promise_changed_at": "2026-11-12T00:00:00Z"
         }
       ]
     },
@@ -26826,6 +26862,7 @@
           "unit_price": 875.62,
           "promised_date": "2026-09-16T00:00:00Z",
           "original_promised_date": "2026-09-10T00:00:00Z",
+          "promise_changed_at": "2026-09-07T00:00:00Z",
           "receipts": [
             {
               "date": "2026-09-17T00:00:00Z",
@@ -27596,6 +27633,7 @@
           "unit_price": 120.22,
           "promised_date": "2026-05-14T00:00:00Z",
           "original_promised_date": "2026-05-09T00:00:00Z",
+          "promise_changed_at": "2026-05-06T00:00:00Z",
           "receipts": [
             {
               "date": "2026-05-15T00:00:00Z",
@@ -27718,6 +27756,7 @@
           "unit_price": 229.55,
           "promised_date": "2025-08-13T00:00:00Z",
           "original_promised_date": "2025-08-10T00:00:00Z",
+          "promise_changed_at": "2025-08-07T00:00:00Z",
           "receipts": [
             {
               "date": "2025-08-08T00:00:00Z",
@@ -28406,6 +28445,7 @@
           "unit_price": 685.46,
           "promised_date": "2025-06-23T00:00:00Z",
           "original_promised_date": "2025-06-16T00:00:00Z",
+          "promise_changed_at": "2025-06-13T00:00:00Z",
           "receipts": [
             {
               "date": "2025-06-24T00:00:00Z",
@@ -29631,6 +29671,7 @@
           "unit_price": 285.37,
           "promised_date": "2026-06-06T00:00:00Z",
           "original_promised_date": "2026-05-31T00:00:00Z",
+          "promise_changed_at": "2026-05-28T00:00:00Z",
           "receipts": [
             {
               "date": "2026-06-01T00:00:00Z",
@@ -30149,6 +30190,7 @@
           "unit_price": 567.19,
           "promised_date": "2026-06-17T00:00:00Z",
           "original_promised_date": "2026-06-11T00:00:00Z",
+          "promise_changed_at": "2026-06-08T00:00:00Z",
           "receipts": [
             {
               "date": "2026-06-17T00:00:00Z",
@@ -30899,6 +30941,7 @@
           "unit_price": 159.96,
           "promised_date": "2025-12-19T00:00:00Z",
           "original_promised_date": "2025-12-09T00:00:00Z",
+          "promise_changed_at": "2025-12-06T00:00:00Z",
           "receipts": [
             {
               "date": "2025-12-19T00:00:00Z",
@@ -32060,7 +32103,8 @@
           "qty": 89,
           "unit_price": 83.05,
           "promised_date": "2026-11-17T00:00:00Z",
-          "original_promised_date": "2026-11-13T00:00:00Z"
+          "original_promised_date": "2026-11-13T00:00:00Z",
+          "promise_changed_at": "2026-11-10T00:00:00Z"
         }
       ]
     },
@@ -32346,6 +32390,7 @@
           "unit_price": 224.51,
           "promised_date": "2026-05-26T00:00:00Z",
           "original_promised_date": "2026-05-14T00:00:00Z",
+          "promise_changed_at": "2026-05-11T00:00:00Z",
           "receipts": [
             {
               "date": "2026-05-26T00:00:00Z",
@@ -32376,6 +32421,7 @@
           "unit_price": 951.89,
           "promised_date": "2026-07-08T00:00:00Z",
           "original_promised_date": "2026-07-01T00:00:00Z",
+          "promise_changed_at": "2026-06-28T00:00:00Z",
           "receipts": [
             {
               "date": "2026-07-03T00:00:00Z",

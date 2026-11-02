@@ -38,7 +38,8 @@ func partKey(part, currency string) string {
 
 // BuildBaseline indexes all lines with an order date in [from, to]. First
 // article is determined from the full history given (not only the window), so
-// a part first bought before the window is not mistaken for new.
+// a part first bought before the window is not mistaken for new: callers pass
+// everything ordered up to asOf (pastOf), not a windowed slice.
 func BuildBaseline(history []domain.PurchaseOrder, from, to time.Time) *Baseline {
 	b := &Baseline{byPart: map[string][]observation{}, firstArticle: map[string]bool{}}
 

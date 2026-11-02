@@ -25,7 +25,8 @@ below) or `[A]` (assumption) in the code.
 - Reject rates (0.3–1.5% typical; one persona 6.5%). No public source found.
 - Acknowledgment times; +12 h for overseas suppliers.
 - Payment terms: domestic 月结30/60/90天, overseas Net 30; one 30% deposit case.
-- How often a late supplier moves the promised date before it's due.
+- How often a late supplier moves the promised date before it's due, and
+  when (3 days before the original date).
 - Volume: ~730 POs over 18 months, ~25M CNY. Real purchasing is much larger
   (hundreds of millions of CNY a year per S1); this is a slice, not a model of scale.
 - Fixed FX rates (scoring never compares across currencies).

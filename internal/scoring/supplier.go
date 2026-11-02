@@ -11,8 +11,9 @@ import (
 const maxEvidence = 20
 
 // asOfView returns a copy of the PO as it would have looked at asOf: receipts
-// and acknowledgments after asOf are dropped. This is what makes historical
-// replay honest (no peeking into the future).
+// and acknowledgments after asOf are dropped, and a promised-date move is
+// hidden unless it is known to have happened by asOf. This is what makes
+// historical replay honest (no peeking into the future).
 func asOfView(po domain.PurchaseOrder, asOf time.Time) domain.PurchaseOrder {
 	out := po
 	if po.AcknowledgedAt != nil && po.AcknowledgedAt.After(asOf) {
@@ -27,7 +28,35 @@ func asOfView(po domain.PurchaseOrder, asOf time.Time) domain.PurchaseOrder {
 				nl.Receipts = append(nl.Receipts, r)
 			}
 		}
+		if nl.OriginalPromisedDate != nil && !moveKnownBy(nl, asOf) {
+			nl.PromisedDate = *nl.OriginalPromisedDate
+			nl.OriginalPromisedDate, nl.PromiseChangedAt = nil, nil
+		}
 		out.Lines[i] = nl
+	}
+	return out
+}
+
+// moveKnownBy reports whether a promised-date move was visible at asOf. With a
+// change timestamp it must be on or before asOf. Without one we can't tell when
+// it happened, so only lines already completed by asOf (receipts are filtered
+// first) show the move.
+func moveKnownBy(l domain.POLine, asOf time.Time) bool {
+	if l.PromiseChangedAt != nil {
+		return !l.PromiseChangedAt.After(asOf)
+	}
+	_, done := l.CompletedAt()
+	return done
+}
+
+// pastOf returns POs ordered on or before asOf, with no window cutoff. Used to
+// decide first article, so a part first bought before the window isn't new.
+func pastOf(history []domain.PurchaseOrder, asOf time.Time) []domain.PurchaseOrder {
+	var out []domain.PurchaseOrder
+	for _, po := range history {
+		if !po.OrderDate.After(asOf) {
+			out = append(out, po)
+		}
 	}
 	return out
 }
@@ -49,7 +78,7 @@ func windowed(history []domain.PurchaseOrder, from, asOf time.Time) []domain.Pur
 func ScoreSupplier(supplierID string, history []domain.PurchaseOrder, asOf time.Time, cfg Config) Scorecard {
 	from := asOf.AddDate(0, -cfg.WindowMonths, 0)
 	all := windowed(history, from, asOf)
-	base := BuildBaseline(all, from, asOf)
+	base := BuildBaseline(pastOf(history, asOf), from, asOf)
 
 	var mine []domain.PurchaseOrder
 	lineCount := 0

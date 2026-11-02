@@ -21,10 +21,14 @@ since new parts legitimately take longer.
 
 **On-time delivery** is measured against the **first** date the supplier
 confirmed (`original_promised_date` when the date was later moved). Moved dates
-are shown in evidence and flagged when frequent.
+are shown in evidence and flagged when frequent. As of a date, a move counts
+only if it had happened by then (`promise_changed_at`); when that timestamp is
+missing, only lines already delivered by the as-of date show the move.
 
 All scoring is "as of" a date: receipts and acknowledgments after that date
-are ignored, so historical replays show what was knowable at the time.
+are ignored, so historical replays show what was knowable at the time. First
+order of a part is decided from all history up to the as-of date, not just the
+window, so a part bought before the window is not treated as new.
 
 ## Supplier scorecard dimensions
 

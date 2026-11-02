@@ -23,7 +23,10 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 			others = append(others, h)
 		}
 	}
-	base := BuildBaseline(windowed(others, from, asOf), from, asOf)
+	// The baseline includes this PO only so first article is decided for its
+	// lines with the same rule as the scorecard; price and lead benchmarks skip
+	// the PO's own supplier, so its lines never benchmark themselves.
+	base := BuildBaseline(append(pastOf(others, asOf), po), from, asOf)
 	sup := ScoreSupplier(po.SupplierID, others, asOf, cfg)
 
 	a := POAssessment{
@@ -65,7 +68,7 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 
 		lmed, ln := base.LeadFor(l.PartNumber, po.Currency, po.SupplierID)
 		lc.LeadSamples = ln
-		firstArticle := isFirstOrder(po, l, others)
+		firstArticle := base.IsFirstArticle(l.ID)
 		if ld := leadDays(po, l); !firstArticle && ln >= cfg.MinComparables && lmed > 0 && ld > 0 {
 			r := ld / lmed
 			lc.LeadBaseline, lc.LeadRatio = ptr(round1(lmed)), ptr(round1(r*1000)/1000)
@@ -193,20 +196,4 @@ func CheckTerms(po domain.PurchaseOrder, p Policy) []TermCheck {
 			Message: fmt.Sprintf("currency %s; allowed %v", po.Currency, p.RequiredCurrencies)})
 	}
 	return out
-}
-
-// isFirstOrder: no earlier PO from the same supplier contains this part.
-func isFirstOrder(po domain.PurchaseOrder, l domain.POLine, others []domain.PurchaseOrder) bool {
-	k := partKey(l.PartNumber, "")
-	for _, h := range others {
-		if h.SupplierID != po.SupplierID || !h.OrderDate.Before(po.OrderDate) {
-			continue
-		}
-		for _, hl := range h.Lines {
-			if partKey(hl.PartNumber, "") == k {
-				return false
-			}
-		}
-	}
-	return true
 }
