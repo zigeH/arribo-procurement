@@ -1,0 +1,9 @@
+.env
+*.local.json
+/bin/
+/tmp/
+node_modules/
+.next/
+dist/
+# Real customer exports never go in git, even sanitized ones.
+evals/data/customer/

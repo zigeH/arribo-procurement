@@ -1,0 +1,20 @@
+# Local dev infra. Production: AWS (RDS Postgres) + Temporal Cloud.
+services:
+  postgres:
+    image: postgres:16
+    environment:
+      POSTGRES_USER: arribo
+      POSTGRES_PASSWORD: arribo
+      POSTGRES_DB: arribo
+    ports: ["5432:5432"]
+    volumes: [pgdata:/var/lib/postgresql/data]
+
+  temporal:
+    image: temporalio/temporal:latest
+    command: ["server", "start-dev", "--ip", "0.0.0.0"]
+    ports:
+      - "7233:7233"   # gRPC
+      - "8233:8233"   # Web UI
+
+volumes:
+  pgdata:
