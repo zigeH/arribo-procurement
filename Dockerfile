@@ -11,7 +11,10 @@ WORKDIR /src
 COPY go.mod go.sum* ./
 COPY . .
 # go.sum is not committed yet (issue #1): resolve modules like CI does.
-# Once it is, replace with `go mod download` before `COPY . .`.
+# Dependencies float to latest until then and may need a newer Go than this
+# image, so allow the toolchain download (setup-go in CI does the same).
+# Once #1 lands, drop GOTOOLCHAIN and use `go mod download` before `COPY . .`.
+ENV GOTOOLCHAIN=auto
 RUN go mod tidy
 RUN CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /out/api ./cmd/api \
  && CGO_ENABLED=0 GOOS=linux go build -trimpath -ldflags="-s -w" -o /out/worker ./cmd/worker
