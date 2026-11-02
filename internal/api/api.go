@@ -12,6 +12,7 @@ import (
 
 	"github.com/zigeH/arribo-procurement/internal/service"
 	"github.com/zigeH/arribo-procurement/internal/store"
+	"github.com/zigeH/arribo-procurement/internal/timeline"
 )
 
 // RunStarter starts a batch scoring run (a Temporal workflow in production).
@@ -21,8 +22,9 @@ type RunStarter interface {
 
 type Server struct {
 	Svc         *service.Service
-	Runs        RunStarter // may be nil
-	AllowOrigin string     // CORS origin for the console; "" = none
+	Runs        RunStarter    // may be nil
+	Hub         *timeline.Hub // PO data hub; may be nil
+	AllowOrigin string        // CORS origin for the console; "" = none
 	Now         func() time.Time
 }
 
@@ -33,6 +35,9 @@ func (s *Server) Handler() http.Handler {
 	mux.HandleFunc("GET /v1/suppliers/{id}/scorecard", s.scorecard)
 	mux.HandleFunc("GET /v1/pos/{id}/assessment", s.assessPO)
 	mux.HandleFunc("POST /v1/scoring/runs", s.startRun)
+	mux.HandleFunc("GET /v1/pos/{id}/timeline", s.poTimeline)
+	mux.HandleFunc("GET /v1/discrepancies", s.discrepancies)
+	mux.HandleFunc("GET /v1/review-queue", s.reviewQueue)
 	return s.cors(mux)
 }
 
@@ -140,6 +145,76 @@ func (s *Server) startRun(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 	writeJSON(w, 202, map[string]string{"run_id": id})
+}
+
+func (s *Server) hubOr503(w http.ResponseWriter) bool {
+	if s.Hub == nil {
+		writeErr(w, 503, errors.New("PO data hub not configured (ERP source + messages)"))
+		return false
+	}
+	return true
+}
+
+func (s *Server) poTimeline(w http.ResponseWriter, r *http.Request) {
+	if !s.hubOr503(w) {
+		return
+	}
+	asOf, err := s.asOf(r)
+	if err != nil {
+		writeErr(w, 400, err)
+		return
+	}
+	tl, err := s.Hub.Timeline(r.PathValue("id"), asOf)
+	if errors.Is(err, timeline.ErrNotFound) {
+		writeErr(w, 404, err)
+		return
+	}
+	writeJSON(w, 200, tl)
+}
+
+func (s *Server) discrepancies(w http.ResponseWriter, r *http.Request) {
+	if !s.hubOr503(w) {
+		return
+	}
+	asOf, err := s.asOf(r)
+	if err != nil {
+		writeErr(w, 400, err)
+		return
+	}
+	ds := s.Hub.Discrepancies(asOf)
+	if k := r.URL.Query().Get("kind"); k != "" {
+		var f []timeline.Discrepancy
+		for _, d := range ds {
+			if d.Kind == k {
+				f = append(f, d)
+			}
+		}
+		ds = f
+	}
+	byKind := map[string]int{}
+	for _, d := range ds {
+		byKind[d.Kind]++
+	}
+	if ds == nil {
+		ds = []timeline.Discrepancy{}
+	}
+	writeJSON(w, 200, map[string]any{"as_of": asOf, "count": len(ds), "by_kind": byKind, "items": ds})
+}
+
+func (s *Server) reviewQueue(w http.ResponseWriter, r *http.Request) {
+	if !s.hubOr503(w) {
+		return
+	}
+	asOf, err := s.asOf(r)
+	if err != nil {
+		writeErr(w, 400, err)
+		return
+	}
+	q := s.Hub.ReviewQueue(asOf)
+	if q == nil {
+		q = []timeline.Item{}
+	}
+	writeJSON(w, 200, map[string]any{"as_of": asOf, "count": len(q), "items": q})
 }
 
 func (s *Server) cors(next http.Handler) http.Handler {

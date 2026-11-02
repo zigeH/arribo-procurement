@@ -1,0 +1,536 @@
+{
+  "value": [
+    {
+      "CardCode": "SUP-01",
+      "CardName": "Supplier Alpha (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@alpha-01.example.cn; po@alpha-01.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-02",
+      "CardName": "Supplier Bravo (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@bravo-02.example.cn; po@bravo-02.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-03",
+      "CardName": "Supplier Charlie (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@charlie-03.example.cn; po@charlie-03.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-04",
+      "CardName": "Supplier Delta (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@delta-04.example.cn; po@delta-04.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-05",
+      "CardName": "Supplier Echo (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@echo-05.example.cn; po@echo-05.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-06",
+      "CardName": "Supplier Foxtrot (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@foxtrot-06.example.cn; po@foxtrot-06.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-07",
+      "CardName": "Supplier Golf (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@golf-07.example.cn; po@golf-07.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-08",
+      "CardName": "Glass maker DE (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@glass-08.example.de; po@glass-08.example.de",
+      "Country": "DE"
+    },
+    {
+      "CardCode": "SUP-09",
+      "CardName": "Glass maker JP (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@glass-09.example.jp; po@glass-09.example.jp",
+      "Country": "JP"
+    },
+    {
+      "CardCode": "SUP-10",
+      "CardName": "Glass distributor CN (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@glass-10.example.cn; po@glass-10.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-11",
+      "CardName": "Polarizer maker DE (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@polarizer-11.example.de; po@polarizer-11.example.de",
+      "Country": "DE"
+    },
+    {
+      "CardCode": "SUP-12",
+      "CardName": "Optics shop Jiangsu A (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@optics-12.example.cn; po@optics-12.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-13",
+      "CardName": "Optics shop Jiangsu B (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@optics-13.example.cn; po@optics-13.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-14",
+      "CardName": "Optics shop Hubei (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@optics-14.example.cn; po@optics-14.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-15",
+      "CardName": "Coating house Shanghai (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@coating-15.example.cn; po@coating-15.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-16",
+      "CardName": "CNC shop Nanjing A (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@cnc-16.example.cn; po@cnc-16.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-17",
+      "CardName": "CNC shop Nanjing B (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@cnc-17.example.cn; po@cnc-17.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-18",
+      "CardName": "CNC shop Suzhou (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@cnc-18.example.cn; po@cnc-18.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-19",
+      "CardName": "Fastener distributor A (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@fastener-19.example.cn; po@fastener-19.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-20",
+      "CardName": "Fastener distributor B (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@fastener-20.example.cn; po@fastener-20.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-21",
+      "CardName": "Nano-positioning CN (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@nano-positioning-21.example.cn; po@nano-positioning-21.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-22",
+      "CardName": "Motion control US (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@motion-22.example.com; po@motion-22.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-23",
+      "CardName": "PCBA EMS Shenzhen (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@pcba-23.example.cn; po@pcba-23.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-24",
+      "CardName": "PCBA EMS Nanjing (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@pcba-24.example.cn; po@pcba-24.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-25",
+      "CardName": "Camera vendor US (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@camera-25.example.com; po@camera-25.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-26",
+      "CardName": "Camera vendor DE (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@camera-26.example.de; po@camera-26.example.de",
+      "Country": "DE"
+    },
+    {
+      "CardCode": "SUP-27",
+      "CardName": "Small supplier CN-01 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-27.example.cn; po@small-27.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-28",
+      "CardName": "Small supplier CN-02 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-28.example.cn; po@small-28.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-29",
+      "CardName": "Small supplier CN-03 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-29.example.cn; po@small-29.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-30",
+      "CardName": "Small supplier JP-04 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-30.example.jp; po@small-30.example.jp",
+      "Country": "JP"
+    },
+    {
+      "CardCode": "SUP-31",
+      "CardName": "Small supplier CN-05 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-31.example.cn; po@small-31.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-32",
+      "CardName": "Small supplier CN-06 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-32.example.cn; po@small-32.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-33",
+      "CardName": "Small supplier CN-07 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-33.example.cn; po@small-33.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-34",
+      "CardName": "Small supplier CN-08 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-34.example.cn; po@small-34.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-35",
+      "CardName": "Small supplier CN-09 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-35.example.cn; po@small-35.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-36",
+      "CardName": "Small supplier US-10 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-36.example.com; po@small-36.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-37",
+      "CardName": "Small supplier CN-11 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-37.example.cn; po@small-37.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-38",
+      "CardName": "Small supplier CN-12 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-38.example.cn; po@small-38.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-39",
+      "CardName": "Small supplier CN-13 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-39.example.cn; po@small-39.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-40",
+      "CardName": "Small supplier US-14 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-40.example.com; po@small-40.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-41",
+      "CardName": "Small supplier CN-15 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-41.example.cn; po@small-41.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-42",
+      "CardName": "Small supplier CN-16 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-42.example.cn; po@small-42.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-43",
+      "CardName": "Small supplier DE-17 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-43.example.de; po@small-43.example.de",
+      "Country": "DE"
+    },
+    {
+      "CardCode": "SUP-44",
+      "CardName": "Small supplier CN-18 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-44.example.cn; po@small-44.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-45",
+      "CardName": "Small supplier US-19 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-45.example.com; po@small-45.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-46",
+      "CardName": "Small supplier CN-20 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-46.example.cn; po@small-46.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-47",
+      "CardName": "Small supplier CN-21 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-47.example.cn; po@small-47.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-48",
+      "CardName": "Small supplier CN-22 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-48.example.cn; po@small-48.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-49",
+      "CardName": "Small supplier CN-23 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-49.example.cn; po@small-49.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-50",
+      "CardName": "Small supplier DE-24 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-50.example.de; po@small-50.example.de",
+      "Country": "DE"
+    },
+    {
+      "CardCode": "SUP-51",
+      "CardName": "Small supplier CN-25 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-51.example.cn; po@small-51.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-52",
+      "CardName": "Small supplier CN-26 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-52.example.cn; po@small-52.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-53",
+      "CardName": "Small supplier US-27 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-53.example.com; po@small-53.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-54",
+      "CardName": "Small supplier CN-28 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-54.example.cn; po@small-54.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-55",
+      "CardName": "Small supplier CN-29 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-55.example.cn; po@small-55.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-56",
+      "CardName": "Small supplier CN-30 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-56.example.cn; po@small-56.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-57",
+      "CardName": "Small supplier US-31 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-57.example.com; po@small-57.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-58",
+      "CardName": "Small supplier CN-32 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-58.example.cn; po@small-58.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-59",
+      "CardName": "Small supplier CN-33 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-59.example.cn; po@small-59.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-60",
+      "CardName": "Small supplier CN-34 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-60.example.cn; po@small-60.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-61",
+      "CardName": "Small supplier US-35 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-61.example.com; po@small-61.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-62",
+      "CardName": "Small supplier CN-36 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-62.example.cn; po@small-62.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-63",
+      "CardName": "Small supplier CN-37 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-63.example.cn; po@small-63.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-64",
+      "CardName": "Small supplier CN-38 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-64.example.cn; po@small-64.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-65",
+      "CardName": "Small supplier CN-39 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-65.example.cn; po@small-65.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-66",
+      "CardName": "Small supplier CN-40 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-66.example.cn; po@small-66.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-67",
+      "CardName": "Small supplier US-41 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-67.example.com; po@small-67.example.com",
+      "Country": "US"
+    },
+    {
+      "CardCode": "SUP-68",
+      "CardName": "Small supplier CN-42 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-68.example.cn; po@small-68.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-69",
+      "CardName": "Small supplier CN-43 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-69.example.cn; po@small-69.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-70",
+      "CardName": "Small supplier JP-44 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-70.example.jp; po@small-70.example.jp",
+      "Country": "JP"
+    },
+    {
+      "CardCode": "SUP-71",
+      "CardName": "Small supplier CN-45 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-71.example.cn; po@small-71.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-72",
+      "CardName": "Small supplier CN-46 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-72.example.cn; po@small-72.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-73",
+      "CardName": "Small supplier DE-47 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-73.example.de; po@small-73.example.de",
+      "Country": "DE"
+    },
+    {
+      "CardCode": "SUP-74",
+      "CardName": "Small supplier CN-48 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-74.example.cn; po@small-74.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-75",
+      "CardName": "Small supplier CN-49 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-75.example.cn; po@small-75.example.cn",
+      "Country": "CN"
+    },
+    {
+      "CardCode": "SUP-76",
+      "CardName": "Small supplier CN-50 (alias)",
+      "CardType": "cSupplier",
+      "EmailAddress": "sales@small-76.example.cn; po@small-76.example.cn",
+      "Country": "CN"
+    }
+  ]
+}

@@ -1,0 +1,2201 @@
+{
+  "note": "SYNTHETIC supplier emails generated from synthetic data. Not real correspondence. Labels are ground truth for evals.",
+  "messages": [
+    {
+      "id": "msg-0001",
+      "channel": "email",
+      "from": "service@cnc-17.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 订单号250316",
+      "body": "您好，\n\n贵司订单号250316已收到，我司确认按订单交期安排生产。\n\n王\nCNC shop Nanjing B",
+      "date": "2026-06-04T04:00:00Z"
+    },
+    {
+      "id": "msg-0002",
+      "channel": "email",
+      "from": "service@small-34.example.cn",
+      "from_name": "陈",
+      "to": "purchasing@mloptic.example",
+      "subject": "春节放假通知",
+      "body": "各位客户：我司2027年春节放假时间为2月5日至2月16日，节前订单请提前安排。\n\n陈\nSmall supplier CN-08",
+      "date": "2026-06-10T12:00:00Z"
+    },
+    {
+      "id": "msg-0003",
+      "channel": "email",
+      "from": "service@coating-15.example.cn",
+      "from_name": "陈",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 采购订单 250256",
+      "body": "您好，\n\n贵司采购订单 250256已收到，我司确认按订单交期安排生产。\n\n陈\nCoating house Shanghai",
+      "date": "2026-06-15T22:00:00Z"
+    },
+    {
+      "id": "msg-0004",
+      "channel": "email",
+      "from": "342066800@qq.com",
+      "from_name": "陈经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 订单号250056",
+      "body": "您好，\n\n贵司订单号250056已收到，我司确认按订单交期安排生产。\n\n陈经理\nCharlie 销售部",
+      "date": "2026-06-21T22:00:00Z"
+    },
+    {
+      "id": "msg-0005",
+      "channel": "email",
+      "from": "813336326@qq.com",
+      "from_name": "李工",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO250709 分批发货通知",
+      "body": "您好，PO250709第1项 plt-53225-a 共117件，今天先发58件，剩余59件预计下周发出。\n\n李工\nSmall supplier CN-46 销售部",
+      "date": "2026-06-25T10:00:00Z"
+    },
+    {
+      "id": "msg-0006",
+      "channel": "email",
+      "from": "service@small-35.example.cn",
+      "from_name": "李",
+      "to": "purchasing@mloptic.example",
+      "subject": "10月对账单",
+      "body": "您好，附件为10月对账单，请核对，如无异议请盖章回传。\n\n李\nSmall supplier CN-09",
+      "date": "2026-06-25T12:00:00Z"
+    },
+    {
+      "id": "msg-0007",
+      "channel": "email",
+      "from": "sales@optics-12.example.cn",
+      "from_name": "张工",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: PO250191",
+      "body": "您好，\n\n贵司PO250191已收到，我司确认按订单交期安排生产。\n\n张工\nOptics shop Jiangsu A",
+      "date": "2026-06-27T08:00:00Z"
+    },
+    {
+      "id": "msg-0008",
+      "channel": "email",
+      "from": "po@cnc-16.example.cn",
+      "from_name": "陈工",
+      "to": "purchasing@mloptic.example",
+      "subject": "回复：PO 250291确认",
+      "body": "收到PO 250291，已确认，谢谢！\n\n陈工\nCNC shop Nanjing A",
+      "date": "2026-07-05T00:00:00Z"
+    },
+    {
+      "id": "msg-0009",
+      "channel": "email",
+      "from": "sales@optics-13.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO250215 分批发货通知",
+      "body": "您好，PO250215第3项 LNS-39420 rev A 共62件，今天先发31件，剩余31件预计下周发出。\n\n王\nOptics shop Jiangsu B",
+      "date": "2026-07-06T10:00:00Z"
+    },
+    {
+      "id": "msg-0010",
+      "channel": "email",
+      "from": "service@optics-13.example.cn",
+      "from_name": "张",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: PO 250216",
+      "body": "您好，\n\n贵司PO 250216已收到，我司确认按订单交期安排生产。\n\n张\nOptics shop Jiangsu B",
+      "date": "2026-07-09T07:00:00Z"
+    },
+    {
+      "id": "msg-0011",
+      "channel": "email",
+      "from": "anna@small-45.example.com",
+      "from_name": "Anna",
+      "to": "purchasing@mloptic.example",
+      "subject": "New coating capabilities",
+      "body": "We are pleased to announce our new IBS coating line. Contact us for samples.\n\nBest regards,\nAnna\nSmall supplier US-19",
+      "date": "2026-07-10T12:00:00Z"
+    },
+    {
+      "id": "msg-0012",
+      "channel": "email",
+      "from": "po@cnc-16.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250288不良品处理",
+      "body": "收到贵司检验反馈，PO 250288第2项 MEC42849C 有1件不良，我司安排补货，抱歉。\n\n王\nCNC shop Nanjing A",
+      "date": "2026-07-10T14:00:00Z"
+    },
+    {
+      "id": "msg-0013",
+      "channel": "email",
+      "from": "ken@glass-09.example.jp",
+      "from_name": "Ken",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO 250137 reschedule",
+      "body": "Hi, we need to push BLK-STD-012 on PO 250137 to Jul 28, 2026.\n\nBest regards,\nKen\nGlass maker JP",
+      "date": "2026-07-16T15:00:00Z"
+    },
+    {
+      "id": "msg-0014",
+      "channel": "email",
+      "from": "po@bravo-02.example.cn",
+      "from_name": "李工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于MLO-PO-250034交期调整",
+      "body": "您好，因原材料到货延迟，贵司MLO-PO-250034第2项（PLT-71855 rev A）交期由7月22日调整为2026/08/09，敬请谅解。\n\n李工\nBravo",
+      "date": "2026-07-20T09:00:00Z"
+    },
+    {
+      "id": "msg-0015",
+      "channel": "email",
+      "from": "service@small-74.example.cn",
+      "from_name": "陈工",
+      "to": "purchasing@mloptic.example",
+      "subject": "采购订单 250720 分批发货通知",
+      "body": "您好，采购订单 250720第1项 mec-95043-b 共78件，今天先发39件，剩余39件预计下周发出。\n\n陈工\nSmall supplier CN-48",
+      "date": "2026-07-20T10:00:00Z"
+    },
+    {
+      "id": "msg-0016",
+      "channel": "email",
+      "from": "service@charlie-03.example.cn",
+      "from_name": "李",
+      "to": "purchasing@mloptic.example",
+      "subject": "回复：订单号250057确认",
+      "body": "收到订单号250057，已确认，谢谢！\n\n李\nCharlie",
+      "date": "2026-07-21T17:00:00Z"
+    },
+    {
+      "id": "msg-0017",
+      "channel": "email",
+      "from": "364810213@qq.com",
+      "from_name": "刘工",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO 250710 分批发货通知",
+      "body": "您好，PO 250710第2项 PLT-53225 rev A 共77件，今天先发38件，剩余39件预计下周发出。\n\n刘工\nSmall supplier CN-46 销售部",
+      "date": "2026-07-23T10:00:00Z"
+    },
+    {
+      "id": "msg-0018",
+      "channel": "email",
+      "from": "747281952@qq.com",
+      "from_name": "刘经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于采购订单 250238不良品处理",
+      "body": "收到贵司检验反馈，采购订单 250238第2项 PRS52198A 有1件不良，我司安排补货，抱歉。\n\n刘经理\nOptics shop Hubei 销售部",
+      "date": "2026-07-23T14:00:00Z"
+    },
+    {
+      "id": "msg-0019",
+      "channel": "email",
+      "from": "anna@camera-25.example.com",
+      "from_name": "Anna",
+      "to": "purchasing@mloptic.example",
+      "subject": "Meeting next week?",
+      "body": "Hi, would you have time for a short call next Tuesday to discuss next year's forecast?\n\nBest regards,\nAnna\nCamera vendor US",
+      "date": "2026-07-25T12:00:00Z"
+    },
+    {
+      "id": "msg-0020",
+      "channel": "email",
+      "from": "sales@optics-14.example.cn",
+      "from_name": "陈",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250238交期调整",
+      "body": "您好，因排产冲突，贵司PO 250238第3项（PRS-95399-B）交期由7月28日调整为8月2日，敬请谅解。\n\n陈\nOptics shop Hubei",
+      "date": "2026-07-25T14:00:00Z"
+    },
+    {
+      "id": "msg-0021",
+      "channel": "email",
+      "from": "service@pcba-23.example.cn",
+      "from_name": "张工",
+      "to": "purchasing@mloptic.example",
+      "subject": "MLO-PO-250390 分批发货通知",
+      "body": "您好，MLO-PO-250390第2项 PCB-33625 rev B 共63件，今天先发31件，剩余32件预计下周发出。\n\n张工\nPCBA EMS Shenzhen",
+      "date": "2026-07-26T10:00:00Z"
+    },
+    {
+      "id": "msg-0022",
+      "channel": "email",
+      "from": "ken@glass-09.example.jp",
+      "from_name": "Ken",
+      "to": "purchasing@mloptic.example",
+      "subject": "Order confirmation PO 250138",
+      "body": "Dear buyer, PO 250138 is confirmed. Delivery as per PO.\n\nBest regards,\nKen\nGlass maker JP",
+      "date": "2026-07-27T12:00:00Z"
+    },
+    {
+      "id": "msg-0023",
+      "channel": "email",
+      "from": "service@bravo-02.example.cn",
+      "from_name": "陈",
+      "to": "purchasing@mloptic.example",
+      "subject": "延期通知",
+      "body": "您好，MLO-PO-250035的PLT74785C要推迟到8月11日交货，抱歉。\n\n陈\nBravo",
+      "date": "2026-07-28T15:00:00Z"
+    },
+    {
+      "id": "msg-0024",
+      "channel": "email",
+      "from": "po@small-74.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250720不良品处理",
+      "body": "收到贵司检验反馈，PO 250720第1项 MEC-95043-B 有1件不良，我司安排补货，抱歉。\n\n王\nSmall supplier CN-48",
+      "date": "2026-08-01T14:00:00Z"
+    },
+    {
+      "id": "msg-0025",
+      "channel": "email",
+      "from": "maria@small-45.example.com",
+      "from_name": "Maria",
+      "to": "purchasing@mloptic.example",
+      "subject": "Delivery date update - PO#250521",
+      "body": "Hello,\n\nDue to coating rework, line 1 (cam-std-002) of PO#250521 will be delayed. New delivery date: 2026-08-10.\n\nBest regards,\nMaria\nSmall supplier US-19",
+      "date": "2026-08-02T09:00:00Z"
+    },
+    {
+      "id": "msg-0026",
+      "channel": "email",
+      "from": "service@cnc-16.example.cn",
+      "from_name": "陈经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 采购订单 250292",
+      "body": "您好，\n\n贵司采购订单 250292已收到，我司确认按订单交期安排生产。\n\n陈经理\nCNC shop Nanjing A",
+      "date": "2026-08-02T20:00:00Z"
+    },
+    {
+      "id": "msg-0027",
+      "channel": "email",
+      "from": "po@cnc-18.example.cn",
+      "from_name": "王经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "MLO-PO-250341 分批发货通知",
+      "body": "您好，MLO-PO-250341第1项 MEC-51443-C 共54件，今天先发27件，剩余27件预计下周发出。\n\n王经理\nCNC shop Suzhou",
+      "date": "2026-08-04T10:00:00Z"
+    },
+    {
+      "id": "msg-0028",
+      "channel": "email",
+      "from": "392887707@qq.com",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250512交期调整",
+      "body": "您好，因排产冲突，贵司PO 250512第4项（lns-89431-a）交期由2026/08/07调整为8月11日，敬请谅解。\n\n王\nSmall supplier CN-18 销售部",
+      "date": "2026-08-04T13:00:00Z"
+    },
+    {
+      "id": "msg-0029",
+      "channel": "email",
+      "from": "218780852@qq.com",
+      "from_name": "张经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "MLO-PO-250435 分批发货通知",
+      "body": "您好，MLO-PO-250435第1项 MEC-65245 rev A 共59件，今天先发29件，剩余30件预计下周发出。\n\n张经理\nSmall supplier CN-02 销售部",
+      "date": "2026-08-07T10:00:00Z"
+    },
+    {
+      "id": "msg-0030",
+      "channel": "email",
+      "from": "po@small-72.example.cn",
+      "from_name": "刘工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于MLO-PO-250710不良品处理",
+      "body": "收到贵司检验反馈，MLO-PO-250710第1项 PLT-94839-A 有1件不良，我司安排补货，抱歉。\n\n刘工\nSmall supplier CN-46",
+      "date": "2026-08-08T14:00:00Z"
+    },
+    {
+      "id": "msg-0031",
+      "channel": "email",
+      "from": "po@small-48.example.cn",
+      "from_name": "刘工",
+      "to": "purchasing@mloptic.example",
+      "subject": "国庆节快乐",
+      "body": "祝贵司国庆节快乐！\n\n刘工\nSmall supplier CN-22",
+      "date": "2026-08-09T12:00:00Z"
+    },
+    {
+      "id": "msg-0032",
+      "channel": "email",
+      "from": "anna@small-30.example.jp",
+      "from_name": "Anna",
+      "to": "purchasing@mloptic.example",
+      "subject": "Delivery date update - PO 250446",
+      "body": "Hello,\n\nDue to coating rework, line 1 (BLKSTD020) of PO 250446 will be delayed. New delivery date: 2026-08-21.\n\nBest regards,\nAnna\nSmall supplier JP-04",
+      "date": "2026-08-10T14:00:00Z"
+    },
+    {
+      "id": "msg-0033",
+      "channel": "email",
+      "from": "service@small-29.example.cn",
+      "from_name": "陈工",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO250440 分批发货通知",
+      "body": "您好，PO250440第1项 lns-81123-b 共86件，今天先发43件，剩余43件预计下周发出。\n\n陈工\nSmall supplier CN-03",
+      "date": "2026-08-15T10:00:00Z"
+    },
+    {
+      "id": "msg-0034",
+      "channel": "email",
+      "from": "sales@small-65.example.cn",
+      "from_name": "王经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于订单号250660不良品处理",
+      "body": "收到贵司检验反馈，订单号250660第2项 MEC-58878-A 有1件不良，我司安排补货，抱歉。\n\n王经理\nSmall supplier CN-39",
+      "date": "2026-08-19T14:00:00Z"
+    },
+    {
+      "id": "msg-0035",
+      "channel": "email",
+      "from": "lukas@small-73.example.de",
+      "from_name": "Lukas",
+      "to": "purchasing@mloptic.example",
+      "subject": "RE: Rejected parts PO#250714",
+      "body": "Thanks for the inspection report. We confirm 1 pcs of POL22453B on PO#250714 line 1 were rejected; replacements will ship with the next batch.\n\nBest regards,\nLukas\nSmall supplier DE-47",
+      "date": "2026-08-22T14:00:00Z"
+    },
+    {
+      "id": "msg-0036",
+      "channel": "email",
+      "from": "691200389@qq.com",
+      "from_name": "王工",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO 250320 分批发货通知",
+      "body": "您好，PO 250320第1项 mec-19241-a 共56件，今天先发28件，剩余28件预计下周发出。\n\n王工\nCNC shop Nanjing B 销售部",
+      "date": "2026-08-23T10:00:00Z"
+    },
+    {
+      "id": "msg-0037",
+      "channel": "email",
+      "from": "anna@small-57.example.com",
+      "from_name": "Anna",
+      "to": "purchasing@mloptic.example",
+      "subject": "Invoice reminder",
+      "body": "Kindly note invoice INV-2026-1187 is due on Nov 15. Thank you.\n\nBest regards,\nAnna\nSmall supplier US-31",
+      "date": "2026-08-24T12:00:00Z"
+    },
+    {
+      "id": "msg-0038",
+      "channel": "email",
+      "from": "sales@cnc-18.example.cn",
+      "from_name": "刘工",
+      "to": "purchasing@mloptic.example",
+      "subject": "订单号250342 分批发货通知",
+      "body": "您好，订单号250342第1项 MEC-37899 rev A 共40件，今天先发20件，剩余20件预计下周发出。\n\n刘工\nCNC shop Suzhou",
+      "date": "2026-08-25T10:00:00Z"
+    },
+    {
+      "id": "msg-0039",
+      "channel": "email",
+      "from": "po@cnc-16.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于MLO-PO-250293交期调整",
+      "body": "您好，因排产冲突，贵司MLO-PO-250293第1项（MEC69113B）交期由8月28日调整为2026/08/31，敬请谅解。\n\n李经理\nCNC shop Nanjing A",
+      "date": "2026-08-25T13:00:00Z"
+    },
+    {
+      "id": "msg-0040",
+      "channel": "email",
+      "from": "sales@pcba-23.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO 250391 分批发货通知",
+      "body": "您好，PO 250391第3项 PCB40727B 共148件，今天先发74件，剩余74件预计下周发出。\n\n王\nPCBA EMS Shenzhen",
+      "date": "2026-08-26T10:00:00Z"
+    },
+    {
+      "id": "msg-0041",
+      "channel": "email",
+      "from": "service@small-29.example.cn",
+      "from_name": "刘经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于采购订单 250440不良品处理",
+      "body": "收到贵司检验反馈，采购订单 250440第1项 LNS-81123 rev B 有1件不良，我司安排补货，抱歉。\n\n刘经理\nSmall supplier CN-03",
+      "date": "2026-08-27T14:00:00Z"
+    },
+    {
+      "id": "msg-0042",
+      "channel": "email",
+      "from": "sales@small-35.example.cn",
+      "from_name": "张工",
+      "to": "purchasing@mloptic.example",
+      "subject": "订单号250463 分批发货通知",
+      "body": "您好，订单号250463第3项 PCB40727B 共125件，今天先发62件，剩余63件预计下周发出。\n\n张工\nSmall supplier CN-09",
+      "date": "2026-09-01T10:00:00Z"
+    },
+    {
+      "id": "msg-0043",
+      "channel": "email",
+      "from": "sales@cnc-17.example.cn",
+      "from_name": "李工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于订单号250321交期调整",
+      "body": "您好，因排产冲突，贵司订单号250321第1项（MEC-51443-C）交期由2026年9月8日调整为2026/09/09，敬请谅解。\n\n李工\nCNC shop Nanjing B",
+      "date": "2026-09-05T16:00:00Z"
+    },
+    {
+      "id": "msg-0044",
+      "channel": "email",
+      "from": "sales@small-55.example.cn",
+      "from_name": "陈工",
+      "to": "purchasing@mloptic.example",
+      "subject": "交期延后",
+      "body": "MEC-76549-C 这批要延到2026/09/16发货，抱歉。\n\n陈工\nSmall supplier CN-29",
+      "date": "2026-09-07T13:00:00Z"
+    },
+    {
+      "id": "msg-0045",
+      "channel": "email",
+      "from": "service@delta-04.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "回复：PO 250077确认",
+      "body": "收到PO 250077，已确认，谢谢！\n\n李经理\nDelta",
+      "date": "2026-09-07T17:00:00Z"
+    },
+    {
+      "id": "msg-0046",
+      "channel": "email",
+      "from": "service@small-31.example.cn",
+      "from_name": "张经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "展会邀请",
+      "body": "诚邀贵司参观我司在光博会的展位，展期9月10日至12日。\n\n张经理\nSmall supplier CN-05",
+      "date": "2026-09-08T12:00:00Z"
+    },
+    {
+      "id": "msg-0047",
+      "channel": "email",
+      "from": "sales@small-42.example.cn",
+      "from_name": "王工",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO 250493 分批发货通知",
+      "body": "您好，PO 250493第1项 plt-44216-c 共120件，今天先发60件，剩余60件预计下周发出。\n\n王工\nSmall supplier CN-16",
+      "date": "2026-09-11T10:00:00Z"
+    },
+    {
+      "id": "msg-0048",
+      "channel": "email",
+      "from": "sales@bravo-02.example.cn",
+      "from_name": "刘经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 采购订单 250037",
+      "body": "您好，\n\n贵司采购订单 250037已收到，我司确认按订单交期安排生产。\n\n刘经理\nBravo",
+      "date": "2026-09-12T12:00:00Z"
+    },
+    {
+      "id": "msg-0049",
+      "channel": "email",
+      "from": "sales@coating-15.example.cn",
+      "from_name": "陈经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO250258 分批发货通知",
+      "body": "您好，PO250258第2项 plt-39063-b 共120件，今天先发60件，剩余60件预计下周发出。\n\n陈经理\nCoating house Shanghai",
+      "date": "2026-09-16T10:00:00Z"
+    },
+    {
+      "id": "msg-0050",
+      "channel": "email",
+      "from": "494527341@qq.com",
+      "from_name": "张工",
+      "to": "purchasing@mloptic.example",
+      "subject": "订单号250036 分批发货通知",
+      "body": "您好，订单号250036第1项 LNS-62305 rev A 共120件，今天先发60件，剩余60件预计下周发出。\n\n张工\nBravo 销售部",
+      "date": "2026-09-17T10:00:00Z"
+    },
+    {
+      "id": "msg-0051",
+      "channel": "email",
+      "from": "sales@charlie-03.example.cn",
+      "from_name": "陈工",
+      "to": "purchasing@mloptic.example",
+      "subject": "MLO-PO-250058 分批发货通知",
+      "body": "您好，MLO-PO-250058第2项 lns-26670-b 共58件，今天先发29件，剩余29件预计下周发出。\n\n陈工\nCharlie",
+      "date": "2026-09-17T10:00:00Z"
+    },
+    {
+      "id": "msg-0052",
+      "channel": "email",
+      "from": "service@optics-13.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "采购订单 250217 分批发货通知",
+      "body": "您好，采购订单 250217第3项 LNS28443A 共92件，今天先发46件，剩余46件预计下周发出。\n\n李经理\nOptics shop Jiangsu B",
+      "date": "2026-09-18T10:00:00Z"
+    },
+    {
+      "id": "msg-0053",
+      "channel": "email",
+      "from": "sales@pcba-23.example.cn",
+      "from_name": "张工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250391不良品处理",
+      "body": "收到贵司检验反馈，PO 250391第2项 PCB-56269 rev C 有1件不良，我司安排补货，抱歉。\n\n张工\nPCBA EMS Shenzhen",
+      "date": "2026-09-18T14:00:00Z"
+    },
+    {
+      "id": "msg-0054",
+      "channel": "email",
+      "from": "sales@delta-04.example.cn",
+      "from_name": "陈",
+      "to": "purchasing@mloptic.example",
+      "subject": "延期通知",
+      "body": "您好，PO250077的LNS-11558 rev A要推迟到9月27日交货，抱歉。\n\n陈\nDelta",
+      "date": "2026-09-18T16:00:00Z"
+    },
+    {
+      "id": "msg-0055",
+      "channel": "email",
+      "from": "service@optics-13.example.cn",
+      "from_name": "张工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250217交期调整",
+      "body": "您好，因排产冲突，贵司PO 250217第1项（LNS-75579 rev A）交期由2026年9月23日调整为2026年9月30日，敬请谅解。\n\n张工\nOptics shop Jiangsu B",
+      "date": "2026-09-19T10:00:00Z"
+    },
+    {
+      "id": "msg-0056",
+      "channel": "email",
+      "from": "sales@delta-04.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "MLO-PO-250077 分批发货通知",
+      "body": "您好，MLO-PO-250077第2项 LNS-11558-A 共85件，今天先发42件，剩余43件预计下周发出。\n\n李经理\nDelta",
+      "date": "2026-09-20T10:00:00Z"
+    },
+    {
+      "id": "msg-0057",
+      "channel": "email",
+      "from": "sales@cnc-16.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 采购订单 250295",
+      "body": "您好，\n\n贵司采购订单 250295已收到，我司确认按订单交期安排生产。\n\n王\nCNC shop Nanjing A",
+      "date": "2026-09-21T19:00:00Z"
+    },
+    {
+      "id": "msg-0058",
+      "channel": "email",
+      "from": "sales@small-56.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250592不良品处理",
+      "body": "收到贵司检验反馈，PO 250592第1项 LNS21599A 有1件不良，我司安排补货，抱歉。\n\n李经理\nSmall supplier CN-30",
+      "date": "2026-09-22T14:00:00Z"
+    },
+    {
+      "id": "msg-0059",
+      "channel": "email",
+      "from": "maria@small-40.example.com",
+      "from_name": "Maria",
+      "to": "purchasing@mloptic.example",
+      "subject": "Updated company certificate",
+      "body": "Please find attached our renewed ISO 9001 certificate.\n\nBest regards,\nMaria\nSmall supplier US-14",
+      "date": "2026-09-23T12:00:00Z"
+    },
+    {
+      "id": "msg-0060",
+      "channel": "email",
+      "from": "maria@glass-09.example.jp",
+      "from_name": "Maria",
+      "to": "purchasing@mloptic.example",
+      "subject": "Partial shipment - PO#250139",
+      "body": "Hi, we shipped 30 pcs of blk-std-011 (line 2) today under PO#250139; the remaining 30 pcs will follow next week.\n\nBest regards,\nMaria\nGlass maker JP",
+      "date": "2026-09-25T10:00:00Z"
+    },
+    {
+      "id": "msg-0061",
+      "channel": "email",
+      "from": "service@small-59.example.cn",
+      "from_name": "刘",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO250615 分批发货通知",
+      "body": "您好，PO250615第2项 LNS-81807 rev A 共148件，今天先发74件，剩余74件预计下周发出。\n\n刘\nSmall supplier CN-33",
+      "date": "2026-09-25T10:00:00Z"
+    },
+    {
+      "id": "msg-0062",
+      "channel": "email",
+      "from": "anna@glass-09.example.jp",
+      "from_name": "Anna",
+      "to": "purchasing@mloptic.example",
+      "subject": "Price adjustment MLO-PO-250140",
+      "body": "Hello, due to glass cost increases the unit price for BLK-STD-013 (MLO-PO-250140, line 1) changes from USD 32.50 to USD 35.15.\n\nBest regards,\nAnna\nGlass maker JP",
+      "date": "2026-09-27T20:00:00Z"
+    },
+    {
+      "id": "msg-0063",
+      "channel": "email",
+      "from": "438117417@qq.com",
+      "from_name": "刘工",
+      "to": "purchasing@mloptic.example",
+      "subject": "延期通知",
+      "body": "您好，采购订单 250258的PLT-44216-C要推迟到10月8日交货，抱歉。\n\n刘工\nCoating house Shanghai 销售部",
+      "date": "2026-09-29T09:00:00Z"
+    },
+    {
+      "id": "msg-0064",
+      "channel": "email",
+      "from": "sales@charlie-03.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 订单号250060",
+      "body": "您好，\n\n贵司订单号250060已收到，我司确认按订单交期安排生产。\n\n王\nCharlie",
+      "date": "2026-09-29T16:00:00Z"
+    },
+    {
+      "id": "msg-0065",
+      "channel": "email",
+      "from": "service@optics-13.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO250217不良品处理",
+      "body": "收到贵司检验反馈，PO250217第3项 LNS-28443-A 有1件不良，我司安排补货，抱歉。\n\n王\nOptics shop Jiangsu B",
+      "date": "2026-09-30T14:00:00Z"
+    },
+    {
+      "id": "msg-0066",
+      "channel": "email",
+      "from": "maria@camera-26.example.de",
+      "from_name": "Maria",
+      "to": "purchasing@mloptic.example",
+      "subject": "Delivery date update - order 250428",
+      "body": "Hello,\n\nDue to coating rework, line 1 (CAM-STD-001) of order 250428 will be delayed. New delivery date: Oct 13, 2026.\n\nBest regards,\nMaria\nCamera vendor DE",
+      "date": "2026-10-04T09:00:00Z"
+    },
+    {
+      "id": "msg-0067",
+      "channel": "email",
+      "from": "636504633@qq.com",
+      "from_name": "陈",
+      "to": "purchasing@mloptic.example",
+      "subject": "采购订单 250295 分批发货通知",
+      "body": "您好，采购订单 250295第1项 MEC-60689 rev C 共51件，今天先发25件，剩余26件预计下周发出。\n\n陈\nCNC shop Nanjing A 销售部",
+      "date": "2026-10-04T10:00:00Z"
+    },
+    {
+      "id": "msg-0068",
+      "channel": "email",
+      "from": "262631028@qq.com",
+      "from_name": "张工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250195不良品处理",
+      "body": "收到贵司检验反馈，PO 250195第2项 LNS-10637-C 有1件不良，我司安排补货，抱歉。\n\n张工\nOptics shop Jiangsu A 销售部",
+      "date": "2026-10-05T14:00:00Z"
+    },
+    {
+      "id": "msg-0069",
+      "channel": "email",
+      "from": "509309443@qq.com",
+      "from_name": "张经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 样品寄送",
+      "body": "样品已于今日顺丰寄出，单号SF1234567890，请查收。\n\n张经理\nCoating house Shanghai 销售部",
+      "date": "2026-10-08T12:00:00Z"
+    },
+    {
+      "id": "msg-0070",
+      "channel": "email",
+      "from": "sales@charlie-03.example.cn",
+      "from_name": "张工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于MLO-PO-250059不良品处理",
+      "body": "收到贵司检验反馈，MLO-PO-250059第4项 PLT-24044 rev A 有1件不良，我司安排补货，抱歉。\n\n张工\nCharlie",
+      "date": "2026-10-08T14:00:00Z"
+    },
+    {
+      "id": "msg-0071",
+      "channel": "email",
+      "from": "ken@glass-09.example.jp",
+      "from_name": "Ken",
+      "to": "purchasing@mloptic.example",
+      "subject": "Price adjustment order 250141",
+      "body": "Hello, due to glass cost increases the unit price for BLK-STD-001 (order 250141, line 2) changes from USD 23.29 to USD 26.01.\n\nBest regards,\nKen\nGlass maker JP",
+      "date": "2026-10-08T21:00:00Z"
+    },
+    {
+      "id": "msg-0072",
+      "channel": "email",
+      "from": "po@small-35.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "调价通知",
+      "body": "您好，由于原材料涨价，贵司订单号250465第1项 PCB16834B 单价由 213.02 元调整为 232.31 元，请更新订单。\n\n王\nSmall supplier CN-09",
+      "date": "2026-10-10T03:00:00Z"
+    },
+    {
+      "id": "msg-0073",
+      "channel": "email",
+      "from": "service@small-52.example.cn",
+      "from_name": "刘经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "延期通知",
+      "body": "您好，订单号250566的LNS-40062 rev A要推迟到10月24日交货，抱歉。\n\n刘经理\nSmall supplier CN-26",
+      "date": "2026-10-12T14:00:00Z"
+    },
+    {
+      "id": "msg-0074",
+      "channel": "email",
+      "from": "po@optics-14.example.cn",
+      "from_name": "李",
+      "to": "purchasing@mloptic.example",
+      "subject": "调价通知",
+      "body": "您好，由于原材料涨价，贵司PO250242第1项 PLT-26519-C 单价由 166.31 元调整为 180.16 元，请更新订单。\n\n李\nOptics shop Hubei",
+      "date": "2026-10-12T22:00:00Z"
+    },
+    {
+      "id": "msg-0075",
+      "channel": "email",
+      "from": "po@cnc-18.example.cn",
+      "from_name": "陈",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250343交期调整",
+      "body": "您好，因排产冲突，贵司PO 250343第1项（MEC-42718-A）交期由10月17日调整为2026/10/21，敬请谅解。\n\n陈\nCNC shop Suzhou",
+      "date": "2026-10-14T14:00:00Z"
+    },
+    {
+      "id": "msg-0076",
+      "channel": "email",
+      "from": "service@small-44.example.cn",
+      "from_name": "王工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于采购订单 250514不良品处理",
+      "body": "收到贵司检验反馈，采购订单 250514第1项 lns-68171-a 有2件不良，我司安排补货，抱歉。\n\n王工\nSmall supplier CN-18",
+      "date": "2026-10-14T14:00:00Z"
+    },
+    {
+      "id": "msg-0077",
+      "channel": "email",
+      "from": "ken@glass-08.example.de",
+      "from_name": "Ken",
+      "to": "purchasing@mloptic.example",
+      "subject": "RE: Rejected parts PO 250120",
+      "body": "Thanks for the inspection report. We confirm 1 pcs of BLK-STD-014 on PO 250120 line 1 were rejected; replacements will ship with the next batch.\n\nBest regards,\nKen\nGlass maker DE",
+      "date": "2026-10-15T14:00:00Z"
+    },
+    {
+      "id": "msg-0078",
+      "channel": "email",
+      "from": "service@alpha-01.example.cn",
+      "from_name": "王工",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: MLO-PO-250020",
+      "body": "您好，\n\n贵司MLO-PO-250020已收到，我司确认按订单交期安排生产。\n\n王工\nAlpha",
+      "date": "2026-10-15T19:00:00Z"
+    },
+    {
+      "id": "msg-0079",
+      "channel": "email",
+      "from": "tom.424@gmail.com",
+      "from_name": "Tom",
+      "to": "purchasing@mloptic.example",
+      "subject": "Order confirmation order 250121",
+      "body": "Dear buyer, order 250121 is confirmed. Delivery as per PO.\n\nTom\nGlass maker DE",
+      "date": "2026-10-19T07:00:00Z"
+    },
+    {
+      "id": "msg-0080",
+      "channel": "email",
+      "from": "po@optics-13.example.cn",
+      "from_name": "刘经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "调价通知",
+      "body": "您好，由于原材料涨价，贵司订单号250222第1项 LNS-36635 rev C 单价由 106.76 元调整为 115.66 元，请更新订单。\n\n刘经理\nOptics shop Jiangsu B",
+      "date": "2026-10-20T21:00:00Z"
+    },
+    {
+      "id": "msg-0081",
+      "channel": "email",
+      "from": "sales@optics-12.example.cn",
+      "from_name": "陈经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "调价通知",
+      "body": "您好，由于原材料涨价，贵司采购订单 250196第2项 LNS74422C 单价由 92.49 元调整为 100.79 元，请更新订单。\n\n陈经理\nOptics shop Jiangsu A",
+      "date": "2026-10-21T23:00:00Z"
+    },
+    {
+      "id": "msg-0082",
+      "channel": "email",
+      "from": "tom@glass-09.example.jp",
+      "from_name": "Tom",
+      "to": "purchasing@mloptic.example",
+      "subject": "Holiday schedule",
+      "body": "Our office will be closed Dec 24 - Jan 1.\n\nBest regards,\nTom\nGlass maker JP",
+      "date": "2026-10-23T12:00:00Z"
+    },
+    {
+      "id": "msg-0083",
+      "channel": "email",
+      "from": "sales@optics-13.example.cn",
+      "from_name": "张经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于订单号250221交期调整",
+      "body": "您好，因设备检修，贵司订单号250221第2项（lns-26670-b）交期由2026年10月26日调整为2026年10月30日，敬请谅解。\n\n张经理\nOptics shop Jiangsu B",
+      "date": "2026-10-23T16:00:00Z"
+    },
+    {
+      "id": "msg-0084",
+      "channel": "email",
+      "from": "service@small-63.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于MLO-PO-250649不良品处理",
+      "body": "收到贵司检验反馈，MLO-PO-250649第1项 MEC22462A 有1件不良，我司安排补货，抱歉。\n\n李经理\nSmall supplier CN-37",
+      "date": "2026-10-24T14:00:00Z"
+    },
+    {
+      "id": "msg-0085",
+      "channel": "email",
+      "from": "sales@pcba-24.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于MLO-PO-250404不良品处理",
+      "body": "收到贵司检验反馈，MLO-PO-250404第2项 PCB83667A 有2件不良，我司安排补货，抱歉。\n\n李经理\nPCBA EMS Nanjing",
+      "date": "2026-10-25T14:00:00Z"
+    },
+    {
+      "id": "msg-0086",
+      "channel": "email",
+      "from": "ken@glass-08.example.de",
+      "from_name": "Ken",
+      "to": "purchasing@mloptic.example",
+      "subject": "Price adjustment PO 250121",
+      "body": "Hello, due to glass cost increases the unit price for BLK-STD-007 (PO 250121, line 1) changes from EUR 27.41 to EUR 28.89.\n\nBest regards,\nKen\nGlass maker DE",
+      "date": "2026-10-26T01:00:00Z"
+    },
+    {
+      "id": "msg-0087",
+      "channel": "email",
+      "from": "sales@small-54.example.cn",
+      "from_name": "李",
+      "to": "purchasing@mloptic.example",
+      "subject": "调价通知",
+      "body": "您好，由于原材料涨价，贵司MLO-PO-250581第2项 MEC-69113-B 单价由 608.67 元调整为 656.27 元，请更新订单。\n\n李\nSmall supplier CN-28",
+      "date": "2026-10-26T19:00:00Z"
+    },
+    {
+      "id": "msg-0088",
+      "channel": "email",
+      "from": "sales@cnc-16.example.cn",
+      "from_name": "刘经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "调价通知",
+      "body": "您好，由于原材料涨价，贵司PO 250297第1项 MEC96008A 单价由 81.09 元调整为 85.99 元，请更新订单。\n\n刘经理\nCNC shop Nanjing A",
+      "date": "2026-10-29T21:00:00Z"
+    },
+    {
+      "id": "msg-0089",
+      "channel": "email",
+      "from": "service@charlie-03.example.cn",
+      "from_name": "刘工",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于订单号250061不良品处理",
+      "body": "收到贵司检验反馈，订单号250061第1项 LNS-72698 rev A 有1件不良，我司安排补货，抱歉。\n\n刘工\nCharlie",
+      "date": "2026-10-30T14:00:00Z"
+    }
+  ],
+  "labels": [
+    {
+      "message_id": "msg-0001",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250316",
+          "po_id": "b1-po-316"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0002",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0003",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250256",
+          "po_id": "b1-po-256"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0004",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250056",
+          "po_id": "b1-po-56"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0005",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250709",
+          "line_no": 1,
+          "part_number": "PLT-53225-A",
+          "qty": 58,
+          "po_id": "b1-po-709",
+          "line_id": "b1-po-709-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0006",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0007",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250191",
+          "po_id": "b1-po-191"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0008",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250291",
+          "po_id": "b1-po-291"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0009",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250215",
+          "line_no": 3,
+          "part_number": "LNS-39420-A",
+          "qty": 31,
+          "po_id": "b1-po-215",
+          "line_id": "b1-po-215-2"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0010",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250216",
+          "po_id": "b1-po-216"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0011",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0012",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250288",
+          "line_no": 2,
+          "part_number": "MEC-42849-C",
+          "qty": 1,
+          "po_id": "b1-po-288",
+          "line_id": "b1-po-288-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0013",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250137",
+          "part_number": "BLK-STD-012",
+          "date": "2026-07-28",
+          "po_id": "b1-po-137",
+          "line_id": "b1-po-137-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0014",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250034",
+          "line_no": 2,
+          "part_number": "PLT-71855-A",
+          "date": "2026-08-09",
+          "po_id": "b1-po-34",
+          "line_id": "b1-po-34-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0015",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250720",
+          "line_no": 1,
+          "part_number": "MEC-95043-B",
+          "qty": 39,
+          "po_id": "b1-po-720",
+          "line_id": "b1-po-720-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0016",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250057",
+          "po_id": "b1-po-57"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0017",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250710",
+          "line_no": 2,
+          "part_number": "PLT-53225-A",
+          "qty": 38,
+          "po_id": "b1-po-710",
+          "line_id": "b1-po-710-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0018",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250238",
+          "line_no": 2,
+          "part_number": "PRS-52198-A",
+          "qty": 1,
+          "po_id": "b1-po-238",
+          "line_id": "b1-po-238-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0019",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0020",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250238",
+          "line_no": 3,
+          "part_number": "PRS-95399-B",
+          "date": "2026-08-02",
+          "po_id": "b1-po-238",
+          "line_id": "b1-po-238-2"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0021",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250390",
+          "line_no": 2,
+          "part_number": "PCB-33625-B",
+          "qty": 31,
+          "po_id": "b1-po-390",
+          "line_id": "b1-po-390-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0022",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250138",
+          "po_id": "b1-po-138"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0023",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250035",
+          "part_number": "PLT-74785-C",
+          "date": "2026-08-11",
+          "po_id": "b1-po-35",
+          "line_id": "b1-po-35-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0024",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250720",
+          "line_no": 1,
+          "part_number": "MEC-95043-B",
+          "qty": 1,
+          "po_id": "b1-po-720",
+          "line_id": "b1-po-720-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0025",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250521",
+          "line_no": 1,
+          "part_number": "CAM-STD-002",
+          "date": "2026-08-10",
+          "po_id": "b1-po-521",
+          "line_id": "b1-po-521-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0026",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250292",
+          "po_id": "b1-po-292"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0027",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250341",
+          "line_no": 1,
+          "part_number": "MEC-51443-C",
+          "qty": 27,
+          "po_id": "b1-po-341",
+          "line_id": "b1-po-341-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0028",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250512",
+          "line_no": 4,
+          "part_number": "LNS-89431-A",
+          "date": "2026-08-11",
+          "po_id": "b1-po-512",
+          "line_id": "b1-po-512-3"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0029",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250435",
+          "line_no": 1,
+          "part_number": "MEC-65245-A",
+          "qty": 29,
+          "po_id": "b1-po-435",
+          "line_id": "b1-po-435-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0030",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250710",
+          "line_no": 1,
+          "part_number": "PLT-94839-A",
+          "qty": 1,
+          "po_id": "b1-po-710",
+          "line_id": "b1-po-710-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0031",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0032",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250446",
+          "line_no": 1,
+          "part_number": "BLK-STD-020",
+          "date": "2026-08-21",
+          "po_id": "b1-po-446",
+          "line_id": "b1-po-446-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0033",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250440",
+          "line_no": 1,
+          "part_number": "LNS-81123-B",
+          "qty": 43,
+          "po_id": "b1-po-440",
+          "line_id": "b1-po-440-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0034",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250660",
+          "line_no": 2,
+          "part_number": "MEC-58878-A",
+          "qty": 1,
+          "po_id": "b1-po-660",
+          "line_id": "b1-po-660-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0035",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250714",
+          "line_no": 1,
+          "part_number": "POL-22453-B",
+          "qty": 1,
+          "po_id": "b1-po-714",
+          "line_id": "b1-po-714-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0036",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250320",
+          "line_no": 1,
+          "part_number": "MEC-19241-A",
+          "qty": 28,
+          "po_id": "b1-po-320",
+          "line_id": "b1-po-320-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0037",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0038",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250342",
+          "line_no": 1,
+          "part_number": "MEC-37899-A",
+          "qty": 20,
+          "po_id": "b1-po-342",
+          "line_id": "b1-po-342-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0039",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250293",
+          "line_no": 1,
+          "part_number": "MEC-69113-B",
+          "date": "2026-08-31",
+          "po_id": "b1-po-293",
+          "line_id": "b1-po-293-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0040",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250391",
+          "line_no": 3,
+          "part_number": "PCB-40727-B",
+          "qty": 74,
+          "po_id": "b1-po-391",
+          "line_id": "b1-po-391-2"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0041",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250440",
+          "line_no": 1,
+          "part_number": "LNS-81123-B",
+          "qty": 1,
+          "po_id": "b1-po-440",
+          "line_id": "b1-po-440-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0042",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250463",
+          "line_no": 3,
+          "part_number": "PCB-40727-B",
+          "qty": 62,
+          "po_id": "b1-po-463",
+          "line_id": "b1-po-463-2"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0043",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250321",
+          "line_no": 1,
+          "part_number": "MEC-51443-C",
+          "date": "2026-09-09",
+          "po_id": "b1-po-321",
+          "line_id": "b1-po-321-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0044",
+      "events": [
+        {
+          "type": "date_change",
+          "line_no": 2,
+          "part_number": "MEC-76549-C",
+          "date": "2026-09-16",
+          "po_id": "b1-po-586",
+          "line_id": "b1-po-586-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0045",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250077",
+          "po_id": "b1-po-77"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0046",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0047",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250493",
+          "line_no": 1,
+          "part_number": "PLT-44216-C",
+          "qty": 60,
+          "po_id": "b1-po-493",
+          "line_id": "b1-po-493-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0048",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250037",
+          "po_id": "b1-po-37"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0049",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250258",
+          "line_no": 2,
+          "part_number": "PLT-39063-B",
+          "qty": 60,
+          "po_id": "b1-po-258",
+          "line_id": "b1-po-258-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0050",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250036",
+          "line_no": 1,
+          "part_number": "LNS-62305-A",
+          "qty": 60,
+          "po_id": "b1-po-36",
+          "line_id": "b1-po-36-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0051",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250058",
+          "line_no": 2,
+          "part_number": "LNS-26670-B",
+          "qty": 29,
+          "po_id": "b1-po-58",
+          "line_id": "b1-po-58-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0052",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250217",
+          "line_no": 3,
+          "part_number": "LNS-28443-A",
+          "qty": 46,
+          "po_id": "b1-po-217",
+          "line_id": "b1-po-217-2"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0053",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250391",
+          "line_no": 2,
+          "part_number": "PCB-56269-C",
+          "qty": 1,
+          "po_id": "b1-po-391",
+          "line_id": "b1-po-391-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0054",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250077",
+          "part_number": "LNS-11558-A",
+          "date": "2026-09-27",
+          "po_id": "b1-po-77",
+          "line_id": "b1-po-77-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0055",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250217",
+          "line_no": 1,
+          "part_number": "LNS-75579-A",
+          "date": "2026-09-30",
+          "po_id": "b1-po-217",
+          "line_id": "b1-po-217-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0056",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250077",
+          "line_no": 2,
+          "part_number": "LNS-11558-A",
+          "qty": 42,
+          "po_id": "b1-po-77",
+          "line_id": "b1-po-77-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0057",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250295",
+          "po_id": "b1-po-295"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0058",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250592",
+          "line_no": 1,
+          "part_number": "LNS-21599-A",
+          "qty": 1,
+          "po_id": "b1-po-592",
+          "line_id": "b1-po-592-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0059",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0060",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250139",
+          "line_no": 2,
+          "part_number": "BLK-STD-011",
+          "qty": 30,
+          "po_id": "b1-po-139",
+          "line_id": "b1-po-139-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0061",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250615",
+          "line_no": 2,
+          "part_number": "LNS-81807-A",
+          "qty": 74,
+          "po_id": "b1-po-615",
+          "line_id": "b1-po-615-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0062",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250140",
+          "line_no": 1,
+          "part_number": "BLK-STD-013",
+          "price": 35.15,
+          "po_id": "b1-po-140",
+          "line_id": "b1-po-140-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0063",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250258",
+          "part_number": "PLT-44216-C",
+          "date": "2026-10-08",
+          "po_id": "b1-po-258",
+          "line_id": "b1-po-258-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0064",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250060",
+          "po_id": "b1-po-60"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0065",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250217",
+          "line_no": 3,
+          "part_number": "LNS-28443-A",
+          "qty": 1,
+          "po_id": "b1-po-217",
+          "line_id": "b1-po-217-2"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0066",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250428",
+          "line_no": 1,
+          "part_number": "CAM-STD-001",
+          "date": "2026-10-13",
+          "po_id": "b1-po-428",
+          "line_id": "b1-po-428-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0067",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250295",
+          "line_no": 1,
+          "part_number": "MEC-60689-C",
+          "qty": 25,
+          "po_id": "b1-po-295",
+          "line_id": "b1-po-295-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0068",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250195",
+          "line_no": 2,
+          "part_number": "LNS-10637-C",
+          "qty": 1,
+          "po_id": "b1-po-195",
+          "line_id": "b1-po-195-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0069",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0070",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250059",
+          "line_no": 4,
+          "part_number": "PLT-24044-A",
+          "qty": 1,
+          "po_id": "b1-po-59",
+          "line_id": "b1-po-59-3"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0071",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250141",
+          "line_no": 2,
+          "part_number": "BLK-STD-001",
+          "price": 26.01,
+          "po_id": "b1-po-141",
+          "line_id": "b1-po-141-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0072",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250465",
+          "line_no": 1,
+          "part_number": "PCB-16834-B",
+          "price": 232.31,
+          "po_id": "b1-po-465",
+          "line_id": "b1-po-465-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0073",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250566",
+          "part_number": "LNS-40062-A",
+          "date": "2026-10-24",
+          "po_id": "b1-po-566",
+          "line_id": "b1-po-566-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0074",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250242",
+          "line_no": 1,
+          "part_number": "PLT-26519-C",
+          "price": 180.16,
+          "po_id": "b1-po-242",
+          "line_id": "b1-po-242-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0075",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250343",
+          "line_no": 1,
+          "part_number": "MEC-42718-A",
+          "date": "2026-10-21",
+          "po_id": "b1-po-343",
+          "line_id": "b1-po-343-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0076",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250514",
+          "line_no": 1,
+          "part_number": "LNS-68171-A",
+          "qty": 2,
+          "po_id": "b1-po-514",
+          "line_id": "b1-po-514-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0077",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250120",
+          "line_no": 1,
+          "part_number": "BLK-STD-014",
+          "qty": 1,
+          "po_id": "b1-po-120",
+          "line_id": "b1-po-120-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0078",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250020",
+          "po_id": "b1-po-20"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0079",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250121",
+          "po_id": "b1-po-121"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0080",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250222",
+          "line_no": 1,
+          "part_number": "LNS-36635-C",
+          "price": 115.66,
+          "po_id": "b1-po-222",
+          "line_id": "b1-po-222-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0081",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250196",
+          "line_no": 2,
+          "part_number": "LNS-74422-C",
+          "price": 100.79,
+          "po_id": "b1-po-196",
+          "line_id": "b1-po-196-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0082",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0083",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250221",
+          "line_no": 2,
+          "part_number": "LNS-26670-B",
+          "date": "2026-10-30",
+          "po_id": "b1-po-221",
+          "line_id": "b1-po-221-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0084",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250649",
+          "line_no": 1,
+          "part_number": "MEC-22462-A",
+          "qty": 1,
+          "po_id": "b1-po-649",
+          "line_id": "b1-po-649-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0085",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250404",
+          "line_no": 2,
+          "part_number": "PCB-83667-A",
+          "qty": 2,
+          "po_id": "b1-po-404",
+          "line_id": "b1-po-404-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0086",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250121",
+          "line_no": 1,
+          "part_number": "BLK-STD-007",
+          "price": 28.89,
+          "po_id": "b1-po-121",
+          "line_id": "b1-po-121-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0087",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250581",
+          "line_no": 2,
+          "part_number": "MEC-69113-B",
+          "price": 656.27,
+          "po_id": "b1-po-581",
+          "line_id": "b1-po-581-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0088",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250297",
+          "line_no": 1,
+          "part_number": "MEC-96008-A",
+          "price": 85.99,
+          "po_id": "b1-po-297",
+          "line_id": "b1-po-297-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0089",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250061",
+          "line_no": 1,
+          "part_number": "LNS-72698-A",
+          "qty": 1,
+          "po_id": "b1-po-61",
+          "line_id": "b1-po-61-0"
+        }
+      ]
+    }
+  ],
+  "discrepancies": [
+    {
+      "as_of": "2026-07-17T23:00:00Z",
+      "po_id": "b1-po-137",
+      "line_id": "b1-po-137-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-07-21T23:00:00Z",
+      "po_id": "b1-po-34",
+      "line_id": "b1-po-34-1",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-07-26T23:00:00Z",
+      "po_id": "b1-po-238",
+      "line_id": "b1-po-238-2",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-07-29T23:00:00Z",
+      "po_id": "b1-po-35",
+      "line_id": "b1-po-35-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-08-03T23:00:00Z",
+      "po_id": "b1-po-521",
+      "line_id": "b1-po-521-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-08-05T23:00:00Z",
+      "po_id": "b1-po-512",
+      "line_id": "b1-po-512-3",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-08-11T23:00:00Z",
+      "po_id": "b1-po-446",
+      "line_id": "b1-po-446-0",
+      "kind": "date_mismatch",
+      "expect": false
+    },
+    {
+      "as_of": "2026-08-26T23:00:00Z",
+      "po_id": "b1-po-293",
+      "line_id": "b1-po-293-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-09-06T23:00:00Z",
+      "po_id": "b1-po-321",
+      "line_id": "b1-po-321-0",
+      "kind": "date_mismatch",
+      "expect": false
+    },
+    {
+      "as_of": "2026-09-08T23:00:00Z",
+      "po_id": "b1-po-586",
+      "line_id": "b1-po-586-1",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-09-19T23:00:00Z",
+      "po_id": "b1-po-77",
+      "line_id": "b1-po-77-1",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-09-20T23:00:00Z",
+      "po_id": "b1-po-217",
+      "line_id": "b1-po-217-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-09-28T23:00:00Z",
+      "po_id": "b1-po-140",
+      "line_id": "b1-po-140-0",
+      "kind": "price_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-09-30T23:00:00Z",
+      "po_id": "b1-po-258",
+      "line_id": "b1-po-258-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-05T23:00:00Z",
+      "po_id": "b1-po-428",
+      "line_id": "b1-po-428-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-09T23:00:00Z",
+      "po_id": "b1-po-141",
+      "line_id": "b1-po-141-1",
+      "kind": "price_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-11T23:00:00Z",
+      "po_id": "b1-po-465",
+      "line_id": "b1-po-465-0",
+      "kind": "price_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-13T23:00:00Z",
+      "po_id": "b1-po-242",
+      "line_id": "b1-po-242-0",
+      "kind": "price_mismatch",
+      "expect": false
+    },
+    {
+      "as_of": "2026-10-13T23:00:00Z",
+      "po_id": "b1-po-566",
+      "line_id": "b1-po-566-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-15T23:00:00Z",
+      "po_id": "b1-po-343",
+      "line_id": "b1-po-343-0",
+      "kind": "date_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-21T23:00:00Z",
+      "po_id": "b1-po-222",
+      "line_id": "b1-po-222-0",
+      "kind": "price_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-22T23:00:00Z",
+      "po_id": "b1-po-196",
+      "line_id": "b1-po-196-1",
+      "kind": "price_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-24T23:00:00Z",
+      "po_id": "b1-po-221",
+      "line_id": "b1-po-221-1",
+      "kind": "date_mismatch",
+      "expect": false
+    },
+    {
+      "as_of": "2026-10-27T23:00:00Z",
+      "po_id": "b1-po-121",
+      "line_id": "b1-po-121-0",
+      "kind": "price_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-27T23:00:00Z",
+      "po_id": "b1-po-581",
+      "line_id": "b1-po-581-1",
+      "kind": "price_mismatch",
+      "expect": true
+    },
+    {
+      "as_of": "2026-10-30T23:00:00Z",
+      "po_id": "b1-po-297",
+      "line_id": "b1-po-297-0",
+      "kind": "price_mismatch",
+      "expect": true
+    }
+  ]
+}
