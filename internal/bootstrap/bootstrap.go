@@ -59,7 +59,7 @@ func Service(ctx context.Context) (*service.Service, func(), error) {
 //	HUB_B1_DIR      B1-shaped JSON export dir (default evals/data/b1)
 //	HUB_MESSAGES    message corpus JSON (default evals/data/emails.json)
 //	SAPB1_URL, SAPB1_COMPANY, SAPB1_USER, SAPB1_PASSWORD   for servicelayer (read-only user)
-//	ARRIBO_EXTRACTOR rules (default) | llm (needs ANTHROPIC_API_KEY)
+//	ARRIBO_EXTRACTOR rules (default) | llm (needs ANTHROPIC_API_KEY and ARRIBO_LLM_APPROVED)
 func Hub(ctx context.Context) (*timeline.Hub, error) {
 	var r erp.Reader
 	switch mode := Env("HUB_ERP", "fixtures"); mode {
@@ -90,10 +90,12 @@ func Hub(ctx context.Context) (*timeline.Hub, error) {
 	}
 	var ex extract.Extractor = extract.Rules{}
 	if os.Getenv("ARRIBO_EXTRACTOR") == "llm" {
-		if l := extract.NewLLMFromEnv(); l != nil {
-			ex = l
+		l, err := extract.NewLLMFromEnv()
+		if err != nil {
+			slog.Warn("ARRIBO_EXTRACTOR=llm refused; using rules", "reason", err)
 		} else {
-			slog.Warn("ARRIBO_EXTRACTOR=llm but ANTHROPIC_API_KEY is not set; using rules")
+			slog.Info("LLM extraction enabled", "approval", os.Getenv("ARRIBO_LLM_APPROVED"))
+			ex = l
 		}
 	}
 	h, err := timeline.Load(ctx, r, msgs, ex)

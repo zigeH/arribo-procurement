@@ -135,7 +135,7 @@ func src(it Item) Source {
 }
 
 // Build returns the timeline of one PO as of asOf.
-func Build(po domain.PurchaseOrder, items []Item, asOf time.Time) Timeline {
+func Build(po domain.PurchaseOrder, items []Item, asOf time.Time, cfg Config) Timeline {
 	tl := Timeline{POID: po.ID, PONumber: po.Number, SupplierID: po.SupplierID, OrderDate: po.OrderDate, Currency: po.Currency, AsOf: asOf}
 	tl.Entries = append(tl.Entries, Entry{At: po.OrderDate, Kind: "po_created", Summary: fmt.Sprintf("PO %s issued (%d lines)", po.Number, len(po.Lines)), Source: Source{Kind: "erp", Ref: po.ID}})
 	its := visible(items, po.ID, asOf)
@@ -164,7 +164,7 @@ func Build(po domain.PurchaseOrder, items []Item, asOf time.Time) Timeline {
 		switch {
 		case ls.Received >= l.Qty:
 			ls.Status = "received"
-		case asOf.After(effectiveDue(ls).AddDate(0, 0, 2)):
+		case asOf.After(day(effectiveDue(ls)).AddDate(0, 0, cfg.OverdueGraceDays+1)):
 			ls.Status = "overdue"
 		case ls.Received > 0:
 			ls.Status = "partial"

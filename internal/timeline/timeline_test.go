@@ -75,7 +75,7 @@ func TestDetect(t *testing.T) {
 
 func TestBuildTimeline(t *testing.T) {
 	po, items := fixture()
-	tl := Build(po, items, d("2026-10-25"))
+	tl := Build(po, items, d("2026-10-25"), DefaultConfig())
 	if len(tl.Entries) != 6 || tl.Entries[0].Kind != "po_created" {
 		t.Fatalf("entries: %+v", tl.Entries)
 	}
@@ -128,5 +128,16 @@ func TestHubEnrichesForScoring(t *testing.T) {
 	}
 	if ds.POs[0].AcknowledgedAt == nil {
 		t.Fatal("ack not applied")
+	}
+}
+
+func TestFuturePOHasNoTimeline(t *testing.T) {
+	h := &Hub{Cfg: DefaultConfig(), byID: map[string]int{"p": 0},
+		POs: []domain.PurchaseOrder{{ID: "p", Number: "250009", OrderDate: d("2026-10-20")}}}
+	if _, err := h.Timeline("p", d("2026-10-19")); err != ErrNotFound {
+		t.Fatalf("PO issued after as-of: err=%v", err)
+	}
+	if _, err := h.Timeline("250009", d("2026-10-21")); err != nil {
+		t.Fatalf("by number after issue: %v", err)
 	}
 }

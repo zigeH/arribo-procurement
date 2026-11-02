@@ -31,6 +31,23 @@ supplier email   ──►  extract events ──► match to PO line ─┼─�
 - **Scoring consumes the hub**: first confirmed date and acknowledgments come from
   supplier messages (`Hub.EnrichedDataset`).
 
+## Known limits of as-of replay
+
+- ERP values are a snapshot of today. If buyers edit a PO's due date in the ERP
+  after the supplier emails, a past as-of view sees the edited date. Fixing this
+  needs the ERP change log (SAP B1 `ADOC`/`ADO1` history tables) or daily
+  snapshots; until then, discrepancies for past dates are best-effort.
+- A timeline for a PO issued after the as-of date is "not found".
+
+## LLM extraction safeguards
+
+- Refused unless `ARRIBO_LLM_APPROVED` records the customer's written approval
+  (CLAUDE.md hard rule 4); `ANTHROPIC_API_KEY` alone is not enough.
+- Self-reported confidence is capped at 0.8; an event whose quote cannot be
+  found in the email goes to the review queue.
+- Matching rules (line/part disagreement, a part on several lines) send the
+  event to review regardless of extractor confidence.
+
 ## Eval numbers (rules baseline, synthetic data)
 
 | Set | Result |

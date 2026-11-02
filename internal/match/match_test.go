@@ -44,6 +44,8 @@ func TestResolve(t *testing.T) {
 		{"unknown sender -> review", inbox.Message{From: "x@qq.com", Date: at}, extract.Event{Type: inbox.DateChange, PONumber: "250001", LineNo: 1, Confidence: 0.9}, "p1-0", true},
 		{"other supplier's PO -> review", inbox.Message{From: "po@hubei.example.cn", Date: at}, extract.Event{Type: inbox.DateChange, PONumber: "250001", LineNo: 1, Confidence: 0.9}, "", true},
 		{"ambiguous line -> review", inbox.Message{From: "sales@alpha.example.cn", Date: at}, extract.Event{Type: inbox.DateChange, PONumber: "250001", Confidence: 0.9}, "", true},
+		{"line no and part disagree -> review", inbox.Message{From: "sales@alpha.example.cn", Date: at}, extract.Event{Type: inbox.DateChange, PONumber: "250001", LineNo: 1, PartNumber: "PRS-00002-B", Confidence: 0.95}, "", true},
+		{"alias needs leading boundary", inbox.Message{From: "x@qq.com", Body: "see xoptics shop hubei", Date: at}, extract.Event{Type: inbox.Ack, PONumber: "250002", Confidence: 0.9}, "", true},
 		{"unknown PO -> review", inbox.Message{From: "sales@alpha.example.cn", Date: at}, extract.Event{Type: inbox.DateChange, PONumber: "999999", Confidence: 0.9}, "", true},
 	}
 	for _, c := range cases {
@@ -51,5 +53,23 @@ func TestResolve(t *testing.T) {
 		if r.LineID != c.line || r.NeedsReview() != c.review {
 			t.Errorf("%s: line %q review %v (%v)", c.name, r.LineID, r.NeedsReview(), r.Reasons)
 		}
+	}
+}
+
+func TestSamePartOnTwoLinesGoesToReview(t *testing.T) {
+	sups := []erp.Supplier{{Supplier: domain.Supplier{ID: "A", Name: "Supplier Alpha (alias)"}, Emails: []string{"sales@alpha.example.cn"}}}
+	pos := []domain.PurchaseOrder{{ID: "p1", Number: "250001", SupplierID: "A", OrderDate: d("2026-10-01"), Lines: []domain.POLine{
+		{ID: "p1-0", LineNo: 1, PartNumber: "LNS-00001-A", Qty: 10, PromisedDate: d("2026-11-01")},
+		{ID: "p1-1", LineNo: 2, PartNumber: "LNS-00001-A", Qty: 10, PromisedDate: d("2026-12-01")}}}}
+	m := New(sups, pos)
+	msg := inbox.Message{From: "sales@alpha.example.cn", Date: d("2026-10-10")}
+	r := m.Resolve(msg, extract.Event{Type: inbox.DateChange, PONumber: "250001", PartNumber: "LNS-00001-A", Confidence: 0.95})
+	if !r.NeedsReview() || r.LineID != "" || len(r.Candidates) != 2 {
+		t.Fatalf("duplicate part not sent to review: %+v", r)
+	}
+	// With the line number given, it resolves.
+	r = m.Resolve(msg, extract.Event{Type: inbox.DateChange, PONumber: "250001", LineNo: 2, PartNumber: "LNS-00001-A", Confidence: 0.95})
+	if r.NeedsReview() || r.LineID != "p1-1" {
+		t.Fatalf("line no + part should resolve: %+v", r)
 	}
 }

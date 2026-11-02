@@ -76,3 +76,31 @@ func TestLLMParsesResponse(t *testing.T) {
 		t.Fatalf("%+v", e)
 	}
 }
+
+func TestLLMOutputIsVerified(t *testing.T) {
+	m := inbox.Message{ID: "m1", Subject: "PO 250001", Body: "您好，\n250001 第1行交期\n改为 11月20日。"}
+	out := `[{"type":"date_change","po_number":"250001","line_no":1,"date":"2026-11-20","confidence":0.99,"quote":"250001 第1行交期 改为 11月20日。"},
+	{"type":"price_change","po_number":"250001","line_no":1,"price":12.5,"confidence":0.95,"quote":"单价调整为12.5元"}]`
+	evs, err := parseLLM(m, out)
+	if err != nil || len(evs) != 2 {
+		t.Fatalf("parse: %v %+v", err, evs)
+	}
+	if evs[0].Confidence != LLMMaxConfidence {
+		t.Fatalf("verified quote: confidence %.2f, want capped at %.2f", evs[0].Confidence, LLMMaxConfidence)
+	}
+	if evs[1].Confidence >= 0.5 {
+		t.Fatalf("quote not in email must go to review, confidence %.2f", evs[1].Confidence)
+	}
+}
+
+func TestLLMNeedsWrittenApproval(t *testing.T) {
+	t.Setenv("ANTHROPIC_API_KEY", "test-not-a-key")
+	t.Setenv("ARRIBO_LLM_APPROVED", "")
+	if l, err := NewLLMFromEnv(); l != nil || err != ErrLLMNotApproved {
+		t.Fatalf("LLM enabled without approval: %v %v", l, err)
+	}
+	t.Setenv("ARRIBO_LLM_APPROVED", "test")
+	if l, err := NewLLMFromEnv(); l == nil || err != nil {
+		t.Fatalf("approved: %v %v", l, err)
+	}
+}

@@ -78,10 +78,10 @@ func (h *Hub) Timeline(id string, asOf time.Time) (Timeline, error) {
 			}
 		}
 	}
-	if !ok {
-		return Timeline{}, ErrNotFound
+	if !ok || h.POs[i].OrderDate.After(asOf) {
+		return Timeline{}, ErrNotFound // a PO issued after asOf did not exist yet
 	}
-	return Build(h.POs[i], h.Items, asOf), nil
+	return Build(h.POs[i], h.Items, asOf, h.Cfg), nil
 }
 
 // Discrepancies as of asOf.
@@ -104,6 +104,9 @@ func (h *Hub) ReviewQueue(asOf time.Time) []Item {
 // EnrichedDataset is the ERP data with supplier facts folded in, for scoring:
 // a supplier date change sets OriginalPromisedDate (ERP date) and PromisedDate
 // (latest supplier date); the first acknowledgment sets AcknowledgedAt.
+// Only the last date change per line is kept, so an as-of replay between an
+// earlier and the last change shows no move at all: it under-reports, it
+// never shows a move before it happened.
 func (h *Hub) EnrichedDataset(customer string, generated time.Time) domain.Dataset {
 	ds := domain.Dataset{Customer: customer, Generated: generated, Note: "ERP data enriched with supplier messages by the PO data hub"}
 	for _, s := range h.Suppliers {

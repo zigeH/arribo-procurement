@@ -89,12 +89,19 @@ func (m *Matcher) supplier(msg inbox.Message) (string, float64, string) {
 	}
 	text := strings.ToLower(msg.FromName + "\n" + msg.Body)
 	for _, a := range m.aliases {
-		if idx := strings.Index(text, a.name); idx >= 0 {
-			// Require a word boundary after the alias ("Small supplier CN-07" must not match "CN-071").
+		for from := 0; from < len(text); {
+			idx := strings.Index(text[from:], a.name)
+			if idx < 0 {
+				break
+			}
+			idx += from
+			// Require word boundaries on both sides ("Small supplier CN-07"
+			// must not match "CN-071"; "alpha" must not match "xalpha").
 			end := idx + len(a.name)
-			if end == len(text) || !isWordByte(text[end]) {
+			if (idx == 0 || !isWordByte(text[idx-1])) && (end == len(text) || !isWordByte(text[end])) {
 				return a.supplierID, 0.75, "supplier by name in signature: " + a.name
 			}
+			from = idx + 1
 		}
 	}
 	return "", 0, "supplier not recognized from sender " + msg.From
@@ -211,16 +218,37 @@ func (m *Matcher) Resolve(msg inbox.Message, e extract.Event) Match {
 			}
 		}
 		if line != nil && e.PartNumber != "" && extract.NormalizePart(line.PartNumber) != e.PartNumber {
-			conf -= 0.3
+			// Supplier's line number points at one line, part number at
+			// another (or none): ambiguous, a human decides (hard rule 3).
 			out.Reasons = append(out.Reasons, "line number and part number disagree")
+			out.Candidates = append(out.Candidates, line.ID)
+			for _, l := range po.Lines {
+				if l.ID != line.ID && extract.NormalizePart(l.PartNumber) == e.PartNumber {
+					out.Candidates = append(out.Candidates, l.ID)
+				}
+			}
+			out.Confidence = min(conf, 0.4)
+			return out
 		}
 	}
 	if line == nil && e.PartNumber != "" {
+		var hits []*domain.POLine
 		for i := range po.Lines {
 			if extract.NormalizePart(po.Lines[i].PartNumber) == e.PartNumber {
-				line = &po.Lines[i]
-				out.Reasons = append(out.Reasons, "line by part number "+e.PartNumber)
+				hits = append(hits, &po.Lines[i])
 			}
+		}
+		switch {
+		case len(hits) == 1:
+			line = hits[0]
+			out.Reasons = append(out.Reasons, "line by part number "+e.PartNumber)
+		case len(hits) > 1:
+			out.Reasons = append(out.Reasons, "part number "+e.PartNumber+" is on several lines of this PO")
+			for _, l := range hits {
+				out.Candidates = append(out.Candidates, l.ID)
+			}
+			out.Confidence = min(conf, 0.4)
+			return out
 		}
 	}
 	if line == nil && len(po.Lines) == 1 {

@@ -10,15 +10,22 @@ import (
 	"os"
 	"strings"
 	"time"
+	"unicode"
 
 	"github.com/zigeH/arribo-procurement/internal/inbox"
 )
 
 // LLM extracts events with the Anthropic Messages API.
 //
-// Env: ANTHROPIC_API_KEY (required), ARRIBO_EXTRACT_MODEL (optional).
-// Never used in CI; evals run the Rules baseline. Only send data the
-// customer has approved for LLM processing (see docs/data-spec.md).
+// Env: ANTHROPIC_API_KEY and ARRIBO_LLM_APPROVED (both required),
+// ARRIBO_EXTRACT_MODEL (optional). Never used in CI; evals run the Rules
+// baseline. Only send data the customer has approved in writing for LLM
+// processing (CLAUDE.md hard rule 4): ARRIBO_LLM_APPROVED records that
+// approval (e.g. "mloptic 2026-11-15 email from <name>").
+//
+// Model output is not trusted blindly (hard rule 3): self-reported confidence
+// is capped at LLMMaxConfidence, and an event whose quote is not found in the
+// email is pushed below the review threshold.
 type LLM struct {
 	APIKey  string
 	Model   string
@@ -26,17 +33,31 @@ type LLM struct {
 	HTTP    *http.Client
 }
 
-// NewLLMFromEnv returns nil if no API key is configured.
-func NewLLMFromEnv() *LLM {
+// LLMMaxConfidence caps the model's self-reported confidence.
+const LLMMaxConfidence = 0.8
+
+// unverifiedConfidence is used when the quote is missing from the email; it is
+// below match.ReviewThreshold so the event goes to the review queue.
+const unverifiedConfidence = 0.3
+
+// ErrLLMNotApproved means ARRIBO_LLM_APPROVED is not set.
+var ErrLLMNotApproved = fmt.Errorf("LLM extraction needs ARRIBO_LLM_APPROVED (customer's written approval to send email to the LLM provider)")
+
+// NewLLMFromEnv returns nil, err if no API key is configured or the customer's
+// approval is not recorded in ARRIBO_LLM_APPROVED.
+func NewLLMFromEnv() (*LLM, error) {
+	if os.Getenv("ARRIBO_LLM_APPROVED") == "" {
+		return nil, ErrLLMNotApproved
+	}
 	key := os.Getenv("ANTHROPIC_API_KEY")
 	if key == "" {
-		return nil
+		return nil, fmt.Errorf("LLM extraction needs ANTHROPIC_API_KEY")
 	}
 	model := os.Getenv("ARRIBO_EXTRACT_MODEL")
 	if model == "" {
 		model = "claude-sonnet-5-5"
 	}
-	return &LLM{APIKey: key, Model: model}
+	return &LLM{APIKey: key, Model: model}, nil
 }
 
 func (l *LLM) Name() string { return "llm:" + l.Model }
@@ -114,10 +135,24 @@ func (l *LLM) Extract(ctx context.Context, m inbox.Message) ([]Event, error) {
 			text += c.Text
 		}
 	}
-	return parseLLM(m.ID, text)
+	return parseLLM(m, text)
 }
 
-func parseLLM(msgID, text string) ([]Event, error) {
+// squash lowercases and drops whitespace, so a quote matches the email even if
+// the model re-wrapped lines or changed spacing.
+func squash(s string) string {
+	var b strings.Builder
+	for _, r := range strings.ToLower(s) {
+		if !unicode.IsSpace(r) {
+			b.WriteRune(r)
+		}
+	}
+	return b.String()
+}
+
+func parseLLM(m inbox.Message, text string) ([]Event, error) {
+	msgID := m.ID
+	haystack := squash(m.Subject + "\n" + m.Body)
 	i, j := strings.Index(text, "["), strings.LastIndex(text, "]")
 	if i < 0 || j < i {
 		return nil, fmt.Errorf("llm output has no JSON array: %.200s", text)
@@ -142,6 +177,12 @@ func parseLLM(msgID, text string) ([]Event, error) {
 		case inbox.Ack, inbox.DateChange, inbox.PartialShip, inbox.PriceChange, inbox.QualityIssue, inbox.Other:
 		default:
 			e.Type = inbox.Other
+		}
+		e.Confidence = min(e.Confidence, LLMMaxConfidence)
+		if e.Type != inbox.Other {
+			if q := squash(e.Quote); q == "" || !strings.Contains(haystack, q) {
+				e.Confidence = min(e.Confidence, unverifiedConfidence)
+			}
 		}
 		evs = append(evs, e)
 	}
