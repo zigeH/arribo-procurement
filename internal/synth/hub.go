@@ -154,6 +154,9 @@ func GenerateHub(seed int64, ds domain.Dataset) (B1Export, inbox.Corpus) {
 		for _, l := range po.Lines {
 			if l.OriginalPromisedDate != nil {
 				t := l.OriginalPromisedDate.AddDate(0, 0, -(2 + rng.Intn(6)))
+				if l.PromiseChangedAt != nil {
+					t = *l.PromiseChangedAt // the email is how the buyer learned of the move
+				}
 				if t.Before(po.OrderDate) {
 					t = po.OrderDate.AddDate(0, 0, 1)
 				}

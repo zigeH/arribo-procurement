@@ -319,7 +319,7 @@
       "to": "purchasing@mloptic.example",
       "subject": "Delivery date update - PO 250446",
       "body": "Hello,\n\nDue to coating rework, line 1 (BLKSTD020) of PO 250446 will be delayed. New delivery date: 2026-08-21.\n\nBest regards,\nAnna\nSmall supplier JP-04",
-      "date": "2026-08-11T14:00:00Z"
+      "date": "2026-08-10T14:00:00Z"
     },
     {
       "id": "msg-0033",
@@ -364,16 +364,6 @@
     {
       "id": "msg-0037",
       "channel": "email",
-      "from": "po@cnc-16.example.cn",
-      "from_name": "李经理",
-      "to": "purchasing@mloptic.example",
-      "subject": "关于MLO-PO-250293交期调整",
-      "body": "您好，因排产冲突，贵司MLO-PO-250293第1项（MEC69113B）交期由8月28日调整为2026/08/31，敬请谅解。\n\n李经理\nCNC shop Nanjing A",
-      "date": "2026-08-23T13:00:00Z"
-    },
-    {
-      "id": "msg-0038",
-      "channel": "email",
       "from": "anna@small-57.example.com",
       "from_name": "Anna",
       "to": "purchasing@mloptic.example",
@@ -382,7 +372,7 @@
       "date": "2026-08-24T12:00:00Z"
     },
     {
-      "id": "msg-0039",
+      "id": "msg-0038",
       "channel": "email",
       "from": "sales@cnc-18.example.cn",
       "from_name": "刘工",
@@ -390,6 +380,16 @@
       "subject": "订单号250342 分批发货通知",
       "body": "您好，订单号250342第1项 MEC-37899 rev A 共40件，今天先发20件，剩余20件预计下周发出。\n\n刘工\nCNC shop Suzhou",
       "date": "2026-08-25T10:00:00Z"
+    },
+    {
+      "id": "msg-0039",
+      "channel": "email",
+      "from": "po@cnc-16.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于MLO-PO-250293交期调整",
+      "body": "您好，因排产冲突，贵司MLO-PO-250293第1项（MEC69113B）交期由8月28日调整为2026/08/31，敬请谅解。\n\n李经理\nCNC shop Nanjing A",
+      "date": "2026-08-25T13:00:00Z"
     },
     {
       "id": "msg-0040",
@@ -429,7 +429,7 @@
       "to": "purchasing@mloptic.example",
       "subject": "关于订单号250321交期调整",
       "body": "您好，因排产冲突，贵司订单号250321第1项（MEC-51443-C）交期由2026年9月8日调整为2026/09/09，敬请谅解。\n\n李工\nCNC shop Nanjing B",
-      "date": "2026-09-03T16:00:00Z"
+      "date": "2026-09-05T16:00:00Z"
     },
     {
       "id": "msg-0044",
@@ -439,7 +439,7 @@
       "to": "purchasing@mloptic.example",
       "subject": "交期延后",
       "body": "MEC-76549-C 这批要延到2026/09/16发货，抱歉。\n\n陈工\nSmall supplier CN-29",
-      "date": "2026-09-06T13:00:00Z"
+      "date": "2026-09-07T13:00:00Z"
     },
     {
       "id": "msg-0045",
@@ -724,16 +724,6 @@
     {
       "id": "msg-0073",
       "channel": "email",
-      "from": "po@cnc-18.example.cn",
-      "from_name": "陈",
-      "to": "purchasing@mloptic.example",
-      "subject": "关于PO 250343交期调整",
-      "body": "您好，因排产冲突，贵司PO 250343第1项（MEC-42718-A）交期由10月17日调整为2026/10/21，敬请谅解。\n\n陈\nCNC shop Suzhou",
-      "date": "2026-10-12T14:00:00Z"
-    },
-    {
-      "id": "msg-0074",
-      "channel": "email",
       "from": "service@small-52.example.cn",
       "from_name": "刘经理",
       "to": "purchasing@mloptic.example",
@@ -742,7 +732,7 @@
       "date": "2026-10-12T14:00:00Z"
     },
     {
-      "id": "msg-0075",
+      "id": "msg-0074",
       "channel": "email",
       "from": "po@optics-14.example.cn",
       "from_name": "李",
@@ -750,6 +740,16 @@
       "subject": "调价通知",
       "body": "您好，由于原材料涨价，贵司PO250242第1项 PLT-26519-C 单价由 166.31 元调整为 180.16 元，请更新订单。\n\n李\nOptics shop Hubei",
       "date": "2026-10-12T22:00:00Z"
+    },
+    {
+      "id": "msg-0075",
+      "channel": "email",
+      "from": "po@cnc-18.example.cn",
+      "from_name": "陈",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250343交期调整",
+      "body": "您好，因排产冲突，贵司PO 250343第1项（MEC-42718-A）交期由10月17日调整为2026/10/21，敬请谅解。\n\n陈\nCNC shop Suzhou",
+      "date": "2026-10-14T14:00:00Z"
     },
     {
       "id": "msg-0076",
@@ -824,22 +824,22 @@
     {
       "id": "msg-0083",
       "channel": "email",
+      "from": "sales@optics-13.example.cn",
+      "from_name": "张经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于订单号250221交期调整",
+      "body": "您好，因设备检修，贵司订单号250221第2项（lns-26670-b）交期由2026年10月26日调整为2026年10月30日，敬请谅解。\n\n张经理\nOptics shop Jiangsu B",
+      "date": "2026-10-23T16:00:00Z"
+    },
+    {
+      "id": "msg-0084",
+      "channel": "email",
       "from": "service@small-63.example.cn",
       "from_name": "李经理",
       "to": "purchasing@mloptic.example",
       "subject": "关于MLO-PO-250649不良品处理",
       "body": "收到贵司检验反馈，MLO-PO-250649第1项 MEC22462A 有1件不良，我司安排补货，抱歉。\n\n李经理\nSmall supplier CN-37",
       "date": "2026-10-24T14:00:00Z"
-    },
-    {
-      "id": "msg-0084",
-      "channel": "email",
-      "from": "sales@optics-13.example.cn",
-      "from_name": "张经理",
-      "to": "purchasing@mloptic.example",
-      "subject": "关于订单号250221交期调整",
-      "body": "您好，因设备检修，贵司订单号250221第2项（lns-26670-b）交期由2026年10月26日调整为2026年10月30日，敬请谅解。\n\n张经理\nOptics shop Jiangsu B",
-      "date": "2026-10-24T16:00:00Z"
     },
     {
       "id": "msg-0085",
@@ -1333,26 +1333,12 @@
       "message_id": "msg-0037",
       "events": [
         {
-          "type": "date_change",
-          "po_number": "250293",
-          "line_no": 1,
-          "part_number": "MEC-69113-B",
-          "date": "2026-08-31",
-          "po_id": "b1-po-293",
-          "line_id": "b1-po-293-0"
-        }
-      ]
-    },
-    {
-      "message_id": "msg-0038",
-      "events": [
-        {
           "type": "other"
         }
       ]
     },
     {
-      "message_id": "msg-0039",
+      "message_id": "msg-0038",
       "events": [
         {
           "type": "partial_ship",
@@ -1362,6 +1348,20 @@
           "qty": 20,
           "po_id": "b1-po-342",
           "line_id": "b1-po-342-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0039",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250293",
+          "line_no": 1,
+          "part_number": "MEC-69113-B",
+          "date": "2026-08-31",
+          "po_id": "b1-po-293",
+          "line_id": "b1-po-293-0"
         }
       ]
     },
@@ -1795,20 +1795,6 @@
       "events": [
         {
           "type": "date_change",
-          "po_number": "250343",
-          "line_no": 1,
-          "part_number": "MEC-42718-A",
-          "date": "2026-10-21",
-          "po_id": "b1-po-343",
-          "line_id": "b1-po-343-0"
-        }
-      ]
-    },
-    {
-      "message_id": "msg-0074",
-      "events": [
-        {
-          "type": "date_change",
           "po_number": "250566",
           "part_number": "LNS-40062-A",
           "date": "2026-10-24",
@@ -1818,7 +1804,7 @@
       ]
     },
     {
-      "message_id": "msg-0075",
+      "message_id": "msg-0074",
       "events": [
         {
           "type": "price_change",
@@ -1828,6 +1814,20 @@
           "price": 180.16,
           "po_id": "b1-po-242",
           "line_id": "b1-po-242-0"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0075",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250343",
+          "line_no": 1,
+          "part_number": "MEC-42718-A",
+          "date": "2026-10-21",
+          "po_id": "b1-po-343",
+          "line_id": "b1-po-343-0"
         }
       ]
     },
@@ -1919,20 +1919,6 @@
       "message_id": "msg-0083",
       "events": [
         {
-          "type": "quality_issue",
-          "po_number": "250649",
-          "line_no": 1,
-          "part_number": "MEC-22462-A",
-          "qty": 1,
-          "po_id": "b1-po-649",
-          "line_id": "b1-po-649-0"
-        }
-      ]
-    },
-    {
-      "message_id": "msg-0084",
-      "events": [
-        {
           "type": "date_change",
           "po_number": "250221",
           "line_no": 2,
@@ -1940,6 +1926,20 @@
           "date": "2026-10-30",
           "po_id": "b1-po-221",
           "line_id": "b1-po-221-1"
+        }
+      ]
+    },
+    {
+      "message_id": "msg-0084",
+      "events": [
+        {
+          "type": "quality_issue",
+          "po_number": "250649",
+          "line_no": 1,
+          "part_number": "MEC-22462-A",
+          "qty": 1,
+          "po_id": "b1-po-649",
+          "line_id": "b1-po-649-0"
         }
       ]
     },
@@ -2058,28 +2058,28 @@
       "expect": true
     },
     {
-      "as_of": "2026-08-12T23:00:00Z",
+      "as_of": "2026-08-11T23:00:00Z",
       "po_id": "b1-po-446",
       "line_id": "b1-po-446-0",
       "kind": "date_mismatch",
       "expect": false
     },
     {
-      "as_of": "2026-08-24T23:00:00Z",
+      "as_of": "2026-08-26T23:00:00Z",
       "po_id": "b1-po-293",
       "line_id": "b1-po-293-0",
       "kind": "date_mismatch",
       "expect": true
     },
     {
-      "as_of": "2026-09-04T23:00:00Z",
+      "as_of": "2026-09-06T23:00:00Z",
       "po_id": "b1-po-321",
       "line_id": "b1-po-321-0",
       "kind": "date_mismatch",
       "expect": false
     },
     {
-      "as_of": "2026-09-07T23:00:00Z",
+      "as_of": "2026-09-08T23:00:00Z",
       "po_id": "b1-po-586",
       "line_id": "b1-po-586-1",
       "kind": "date_mismatch",
@@ -2143,15 +2143,15 @@
     },
     {
       "as_of": "2026-10-13T23:00:00Z",
-      "po_id": "b1-po-343",
-      "line_id": "b1-po-343-0",
+      "po_id": "b1-po-566",
+      "line_id": "b1-po-566-0",
       "kind": "date_mismatch",
       "expect": true
     },
     {
-      "as_of": "2026-10-13T23:00:00Z",
-      "po_id": "b1-po-566",
-      "line_id": "b1-po-566-0",
+      "as_of": "2026-10-15T23:00:00Z",
+      "po_id": "b1-po-343",
+      "line_id": "b1-po-343-0",
       "kind": "date_mismatch",
       "expect": true
     },
@@ -2170,7 +2170,7 @@
       "expect": true
     },
     {
-      "as_of": "2026-10-25T23:00:00Z",
+      "as_of": "2026-10-24T23:00:00Z",
       "po_id": "b1-po-221",
       "line_id": "b1-po-221-1",
       "kind": "date_mismatch",

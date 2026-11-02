@@ -123,6 +123,9 @@ func TestHubEnrichesForScoring(t *testing.T) {
 	if l.OriginalPromisedDate == nil || !l.OriginalPromisedDate.Equal(d("2026-10-20")) || !l.PromisedDate.Equal(d("2026-11-05")) {
 		t.Fatalf("not enriched: %+v", l)
 	}
+	if l.PromiseChangedAt == nil || !l.PromiseChangedAt.Equal(d("2026-10-15")) {
+		t.Fatalf("promise change time not set from email: %+v", l.PromiseChangedAt)
+	}
 	if ds.POs[0].AcknowledgedAt == nil {
 		t.Fatal("ack not applied")
 	}

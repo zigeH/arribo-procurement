@@ -111,6 +111,7 @@ func (h *Hub) EnrichedDataset(customer string, generated time.Time) domain.Datas
 	}
 	ack := map[string]time.Time{}
 	lastDate := map[string]time.Time{}
+	changedAt := map[string]time.Time{}
 	items := append([]Item(nil), h.Items...)
 	sort.SliceStable(items, func(i, j int) bool { return items[i].Date.Before(items[j].Date) })
 	for _, it := range items {
@@ -123,6 +124,7 @@ func (h *Hub) EnrichedDataset(customer string, generated time.Time) domain.Datas
 		case inbox.DateChange:
 			if e.Date != nil && it.Match.LineID != "" {
 				lastDate[it.Match.LineID] = *e.Date
+				changedAt[it.Match.LineID] = it.Date
 			}
 		}
 	}
@@ -141,6 +143,8 @@ func (h *Hub) EnrichedDataset(customer string, generated time.Time) domain.Datas
 				}
 				np.Lines[i].OriginalPromisedDate = &orig
 				np.Lines[i].PromisedDate = d
+				ca := changedAt[l.ID] // when the supplier told us: keeps as-of replay honest
+				np.Lines[i].PromiseChangedAt = &ca
 			}
 		}
 		ds.POs = append(ds.POs, np)
