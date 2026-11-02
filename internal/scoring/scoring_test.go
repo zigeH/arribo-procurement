@@ -127,3 +127,53 @@ func TestTermsNeedPolicyAndCiteSource(t *testing.T) {
 		t.Fatalf("unexpected: %+v", res)
 	}
 }
+
+func TestPriceNeverBenchmarksSupplierAgainstItself(t *testing.T) {
+	// Single-sourced part, always expensive: there is no honest benchmark.
+	var h []domain.PurchaseOrder
+	for i := 0; i < 6; i++ {
+		h = append(h, po("x"+string(rune('a'+i)), "ONLY", i*20, "CUSTOM-1", 999, 30, 0, 0))
+	}
+	sc := ScoreSupplier("ONLY", h, day(300), DefaultConfig())
+	for _, d := range sc.Dimensions {
+		if d.Dimension == DimPrice && d.Score != nil {
+			t.Fatalf("single-sourced part was price-scored against own history: %v", *d.Score)
+		}
+	}
+}
+
+func TestFirstOrderExcludedFromLeadTime(t *testing.T) {
+	var h []domain.PurchaseOrder
+	// Other supplier: repeat orders at 20 days.
+	for i := 0; i < 5; i++ {
+		h = append(h, po("o"+string(rune('a'+i)), "OTHER", i*10, "P", 10, 20, 0, 0))
+	}
+	// NEW: first order 60 days (first article), then repeats at 20 days.
+	h = append(h, po("n0", "NEW", 100, "P", 10, 60, 0, 0))
+	for i := 1; i <= 3; i++ {
+		h = append(h, po("n"+string(rune('0'+i)), "NEW", 100+i*30, "P", 10, 20, 0, 0))
+	}
+	sc := ScoreSupplier("NEW", h, day(400), DefaultConfig())
+	for _, d := range sc.Dimensions {
+		if d.Dimension == DimLeadTime {
+			if d.Score == nil || *d.Score != 100 || d.Samples != 3 {
+				t.Fatalf("lead: %+v", d)
+			}
+		}
+	}
+	a := AssessPO(h[5], h, day(100), DefaultConfig())
+	if a.Lines[0].LeadVerdict != "first_order" {
+		t.Fatalf("first order verdict = %s", a.Lines[0].LeadVerdict)
+	}
+}
+
+func TestMovedDateDoesNotHideLateness(t *testing.T) {
+	p := po("a", "S1", 0, "P", 10, 30, 10, 0) // delivered 10 days after first commit
+	orig := p.Lines[0].PromisedDate
+	p.Lines[0].OriginalPromisedDate = &orig
+	p.Lines[0].PromisedDate = orig.AddDate(0, 0, 10) // supplier moved the date
+	sc := ScoreSupplier("S1", []domain.PurchaseOrder{p}, day(200), DefaultConfig())
+	if d := sc.Dimensions[0]; d.Score == nil || *d.Score != 0 {
+		t.Fatalf("moved date hid a late delivery: %+v", d)
+	}
+}

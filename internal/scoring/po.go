@@ -41,7 +41,7 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 	for _, l := range po.Lines {
 		lc := LineCheck{LineID: l.ID, PartNumber: l.PartNumber, UnitPrice: l.UnitPrice, LeadDays: round1(leadDays(po, l))}
 
-		med, n := base.PriceFor(l.PartNumber, po.Currency, po.ID)
+		med, n := base.PriceFor(l.PartNumber, po.Currency, po.SupplierID)
 		lc.PriceSamples = n
 		if n >= cfg.MinComparables && med > 0 && l.UnitPrice > 0 {
 			r := l.UnitPrice / med
@@ -63,9 +63,10 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 			lc.PriceVerdict = "no_baseline"
 		}
 
-		lmed, ln := base.LeadFor(l.PartNumber, po.Currency, po.ID)
+		lmed, ln := base.LeadFor(l.PartNumber, po.Currency, po.SupplierID)
 		lc.LeadSamples = ln
-		if ld := leadDays(po, l); ln >= cfg.MinComparables && lmed > 0 && ld > 0 {
+		firstArticle := isFirstOrder(po, l, others)
+		if ld := leadDays(po, l); !firstArticle && ln >= cfg.MinComparables && lmed > 0 && ld > 0 {
 			r := ld / lmed
 			lc.LeadBaseline, lc.LeadRatio = ptr(round1(lmed)), ptr(round1(r*1000)/1000)
 			switch {
@@ -80,6 +81,8 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 			}
 			leadTotal += leadScore(r)
 			leadN++
+		} else if firstArticle {
+			lc.LeadVerdict = "first_order"
 		} else {
 			lc.LeadVerdict = "no_baseline"
 		}
@@ -137,7 +140,7 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 }
 
 var (
-	reNet     = regexp.MustCompile(`(?i)net\s*(\d+)`)
+	reNet     = regexp.MustCompile(`(?i)(?:net\s*|月结\s*)(\d+)`)
 	reDeposit = regexp.MustCompile(`(\d+)\s*%\s*(deposit|advance|prepay)`)
 )
 
@@ -190,4 +193,20 @@ func CheckTerms(po domain.PurchaseOrder, p Policy) []TermCheck {
 			Message: fmt.Sprintf("currency %s; allowed %v", po.Currency, p.RequiredCurrencies)})
 	}
 	return out
+}
+
+// isFirstOrder: no earlier PO from the same supplier contains this part.
+func isFirstOrder(po domain.PurchaseOrder, l domain.POLine, others []domain.PurchaseOrder) bool {
+	k := partKey(l.PartNumber, "")
+	for _, h := range others {
+		if h.SupplierID != po.SupplierID || !h.OrderDate.Before(po.OrderDate) {
+			continue
+		}
+		for _, hl := range h.Lines {
+			if partKey(hl.PartNumber, "") == k {
+				return false
+			}
+		}
+	}
+	return true
 }

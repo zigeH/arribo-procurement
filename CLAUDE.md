@@ -21,6 +21,8 @@ Feature 1 is **supplier & PO scoring against the customer's own history**:
    (or from a cited source in `scoring.Policy`). Not enough data → `Score: nil`
    and say so. Do not fill gaps with "industry averages" from memory.
 2. **Every score has evidence** (PO number + line + the numbers used).
+   Benchmarks compare a supplier only with OTHER suppliers; lead time uses
+   repeat orders only; on-time uses the first confirmed date.
 3. **No real customer data in git, in prompts to third parties, or in cloud
    agent sandboxes.** Use `evals/data/synthetic_mloptic.json`. Real sanitized
    exports live outside the repo (`evals/data/customer/` is gitignored).
@@ -50,7 +52,7 @@ Feature 1 is **supplier & PO scoring against the customer's own history**:
 cmd/api        HTTP API (net/http). Runs with in-memory store + no Temporal for demos
 cmd/worker     Temporal worker
 cmd/seed       load a dataset JSON into Postgres
-cmd/gensynth   regenerate synthetic data (deterministic)
+cmd/gensynth   regenerate synthetic data (deterministic; sources in docs/synthetic-data-sources.md)
 cmd/replay     print scorecards for a dataset as of a date
 internal/domain     entities (stdlib only)
 internal/scoring    pure scoring functions (stdlib only, no I/O, no clock)
@@ -108,5 +110,7 @@ GitHub from agent sessions: GraphQL is unavailable, so `gh issue create`,
 - `go.sum` is not committed yet (first commit was made from an environment
   without module proxy access). CI runs `go mod tidy` first. Committing
   `go.sum` and tightening CI is an open issue.
+- Synthetic data parameters are tagged [S#]/[A] in `internal/synth`; keep the
+  tags and docs/synthetic-data-sources.md in sync when changing them.
 - Score curves and grade thresholds are first guesses; calibrate with MLOptic
   buyers (issue: calibration).

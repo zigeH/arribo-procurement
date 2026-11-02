@@ -154,7 +154,7 @@ func (s *Store) loadPOs(ctx context.Context, cond string, arg any) ([]domain.Pur
 
 	lrows, err := s.Pool.Query(ctx, `
 		SELECT l.id, l.po_id, l.line_no, l.part_number, l.category, l.description,
-		       l.qty::float8, l.unit_price::float8, l.promised_date,
+		       l.qty::float8, l.unit_price::float8, l.promised_date, l.original_promised_date,
 		       r.received_on, r.qty_received::float8, r.qty_rejected::float8
 		FROM po_lines l
 		LEFT JOIN receipts r ON r.tenant_id = l.tenant_id AND r.line_id = l.id
@@ -170,7 +170,7 @@ func (s *Store) loadPOs(ctx context.Context, cond string, arg any) ([]domain.Pur
 		var poID string
 		var promised, recvOn *time.Time
 		var qr, qj *float64
-		if err := lrows.Scan(&l.ID, &poID, &l.LineNo, &l.PartNumber, &l.Category, &l.Description, &l.Qty, &l.UnitPrice, &promised, &recvOn, &qr, &qj); err != nil {
+		if err := lrows.Scan(&l.ID, &poID, &l.LineNo, &l.PartNumber, &l.Category, &l.Description, &l.Qty, &l.UnitPrice, &promised, &l.OriginalPromisedDate, &recvOn, &qr, &qj); err != nil {
 			return nil, err
 		}
 		pi := idx[poID]
@@ -260,9 +260,9 @@ func (s *Store) ImportDataset(ctx context.Context, ds domain.Dataset) error {
 			if !l.PromisedDate.IsZero() {
 				promised = &l.PromisedDate
 			}
-			if _, err := tx.Exec(ctx, `INSERT INTO po_lines (tenant_id,id,po_id,line_no,part_number,category,description,qty,unit_price,promised_date)
-				VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10)`,
-				s.Tenant, l.ID, p.ID, l.LineNo, l.PartNumber, l.Category, l.Description, l.Qty, l.UnitPrice, promised); err != nil {
+			if _, err := tx.Exec(ctx, `INSERT INTO po_lines (tenant_id,id,po_id,line_no,part_number,category,description,qty,unit_price,promised_date,original_promised_date)
+				VALUES ($1,$2,$3,$4,$5,$6,$7,$8,$9,$10,$11)`,
+				s.Tenant, l.ID, p.ID, l.LineNo, l.PartNumber, l.Category, l.Description, l.Qty, l.UnitPrice, promised, l.OriginalPromisedDate); err != nil {
 				return err
 			}
 			for i, r := range l.Receipts {
