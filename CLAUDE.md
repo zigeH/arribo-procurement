@@ -62,6 +62,7 @@ internal/temporalx  Temporal client from env
 internal/api        HTTP handlers (stdlib only)
 evals/              replay evals; must stay green
 docs/               methodology + customer data spec
+deploy/             AWS deployment notes (Dockerfile at repo root; no IaC yet)
 ```
 
 Keep `domain`, `scoring`, `service`, `store` (not `store/postgres`) and `api`
