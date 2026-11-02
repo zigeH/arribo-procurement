@@ -1,0 +1,11 @@
+# Keep the build context small and free of secrets / customer data.
+.git
+.github
+.env
+*.local.json
+bin/
+tmp/
+console/
+node_modules/
+# Real customer exports (CLAUDE.md hard rule 3): never in an image.
+evals/data/customer/

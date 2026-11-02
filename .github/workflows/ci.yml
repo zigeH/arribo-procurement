@@ -50,3 +50,24 @@ jobs:
 
       - name: synthetic data up to date
         run: go run ./cmd/gensynth -check
+
+  image:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: docker build (no push)
+        run: docker build -t arribo:ci .
+
+      - name: smoke test API container
+        run: |
+          docker run -d --name api -p 8080:8080 arribo:ci
+          for i in $(seq 1 30); do
+            curl -fsS localhost:8080/healthz && break
+            sleep 1
+          done
+          curl -fsS localhost:8080/v1/suppliers | head -c 300; echo
+          # worker must start and refuse to run without Temporal config
+          out=$(docker run --rm arribo:ci /app/worker 2>&1 || true)
+          echo "$out" | grep -q TEMPORAL_ADDRESS
+          docker logs api
