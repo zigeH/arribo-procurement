@@ -108,5 +108,11 @@ GitHub from agent sessions: GraphQL is unavailable, so `gh issue create`,
 - CI fails if `go mod tidy` changes `go.mod`/`go.sum`. Cloud agent sandboxes
   may not reach the Go module proxy; if you change dependencies there, say so
   in the PR so a human (or CI output) can supply the updated `go.sum`.
+  To get it from CI without a laptop: temporarily change the tidy step in
+  `.github/workflows/ci.yml` to print the files when the diff check fails,
+  e.g. `go mod tidy && (git diff --exit-code go.mod go.sum || (cat go.mod go.sum; exit 1))`,
+  push, copy `go.mod`/`go.sum` exactly from the failed job's log (hashes are
+  checked against `sum.golang.org` there), commit them, then revert the step
+  in the same PR. Never hand-write or guess `go.sum` lines.
 - Score curves and grade thresholds are first guesses; calibrate with MLOptic
   buyers (issue: calibration).
