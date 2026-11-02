@@ -83,8 +83,11 @@ API: `GET /v1/suppliers`, `GET /v1/suppliers/{id}/scorecard?as_of=YYYY-MM-DD`,
 
 ## How agents pick up and ship work
 
-1. Take the oldest open issue labeled `agent-ready` that is not labeled
-   `in-progress`. Add `in-progress` immediately so parallel agents skip it.
+1. First, if any open PR of yours is labeled `changes-requested`, address
+   that feedback before taking new work.
+   Otherwise take the oldest open issue labeled `agent-ready` that is not
+   labeled `in-progress` and whose "Depends on #N" issues are all closed.
+   Add `in-progress` immediately so parallel agents skip it.
 2. Branch `agent/<issue-number>-<short-slug>` from latest `main`.
 3. Keep the change small (one issue). If the issue is too big, split it into
    new `agent-ready` issues and do only the first part.
@@ -95,6 +98,10 @@ API: `GET /v1/suppliers`, `GET /v1/suppliers/{id}/scorecard?as_of=YYYY-MM-DD`,
    never push to `main` directly.** Humans merge.
 6. If blocked (missing info, product decision), comment on the issue with the
    exact question, label it `needs-human`, remove `in-progress`, and move on.
+
+GitHub from agent sessions: GraphQL is unavailable, so `gh issue create`,
+`gh pr create` etc. fail. Use the REST API via `gh api repos/zigeH/arribo-procurement/...`
+(e.g. `POST .../pulls`, `POST .../issues/{n}/labels`, `POST .../pulls/{n}/reviews`).
 
 ## Known gaps / bootstrapping notes
 
