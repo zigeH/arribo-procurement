@@ -1,3 +1,8 @@
+
+.PHONY: hub-eval
+hub-eval:        ## PO data hub evals (extraction, matching, discrepancies)
+	go test ./evals -run Hub -v
+
 .PHONY: test eval replay api worker infra infra-down seed synth fmt
 
 test:            ## unit + workflow tests (+ Postgres integration if DATABASE_URL is set)

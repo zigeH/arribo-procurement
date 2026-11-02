@@ -12,6 +12,11 @@ import (
 	"log/slog"
 	"os"
 
+	"github.com/zigeH/arribo-procurement/internal/connectors/erp"
+	"github.com/zigeH/arribo-procurement/internal/extract"
+	"github.com/zigeH/arribo-procurement/internal/inbox"
+	"github.com/zigeH/arribo-procurement/internal/timeline"
+
 	"github.com/zigeH/arribo-procurement/internal/scoring"
 	"github.com/zigeH/arribo-procurement/internal/service"
 	"github.com/zigeH/arribo-procurement/internal/store"
@@ -46,4 +51,55 @@ func Service(ctx context.Context) (*service.Service, func(), error) {
 	}
 	slog.Info("store: in-memory", "dataset", path, "pos", len(ds.POs))
 	return &service.Service{Store: store.NewMemory(ds), Cfg: cfg}, func() {}, nil
+}
+
+// Hub builds the PO data hub from env, or returns nil if not configured.
+//
+//	HUB_ERP         fixtures (default when HUB_B1_DIR exists) | servicelayer | off
+//	HUB_B1_DIR      B1-shaped JSON export dir (default evals/data/b1)
+//	HUB_MESSAGES    message corpus JSON (default evals/data/emails.json)
+//	SAPB1_URL, SAPB1_COMPANY, SAPB1_USER, SAPB1_PASSWORD   for servicelayer (read-only user)
+//	ARRIBO_EXTRACTOR rules (default) | llm (needs ANTHROPIC_API_KEY)
+func Hub(ctx context.Context) (*timeline.Hub, error) {
+	var r erp.Reader
+	switch mode := Env("HUB_ERP", "fixtures"); mode {
+	case "off":
+		return nil, nil
+	case "servicelayer":
+		r = &erp.ServiceLayer{BaseURL: os.Getenv("SAPB1_URL"), CompanyDB: os.Getenv("SAPB1_COMPANY"),
+			UserName: os.Getenv("SAPB1_USER"), Password: os.Getenv("SAPB1_PASSWORD")}
+	default:
+		dir := Env("HUB_B1_DIR", "evals/data/b1")
+		if _, err := os.Stat(dir); err != nil {
+			slog.Warn("PO data hub disabled: no ERP fixtures", "dir", dir)
+			return nil, nil
+		}
+		r = erp.FixtureReader{Dir: dir}
+	}
+	var msgs []inbox.Message
+	defMsgs := ""
+	if _, ok := r.(erp.FixtureReader); ok {
+		defMsgs = "evals/data/emails.json" // synthetic corpus only goes with synthetic ERP data
+	}
+	if p := Env("HUB_MESSAGES", defMsgs); p != "" {
+		c, err := inbox.LoadCorpus(p)
+		if err != nil {
+			return nil, err
+		}
+		msgs = c.Messages
+	}
+	var ex extract.Extractor = extract.Rules{}
+	if os.Getenv("ARRIBO_EXTRACTOR") == "llm" {
+		if l := extract.NewLLMFromEnv(); l != nil {
+			ex = l
+		} else {
+			slog.Warn("ARRIBO_EXTRACTOR=llm but ANTHROPIC_API_KEY is not set; using rules")
+		}
+	}
+	h, err := timeline.Load(ctx, r, msgs, ex)
+	if err != nil {
+		return nil, err
+	}
+	slog.Info("PO data hub loaded", "pos", len(h.POs), "messages", len(msgs), "resolved", len(h.Items), "review", len(h.Review), "extractor", h.Extractor)
+	return h, nil
 }

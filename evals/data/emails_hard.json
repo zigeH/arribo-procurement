@@ -1,0 +1,348 @@
+{
+  "note": "HAND-WRITTEN held-out synthetic emails in phrasings the templates do not use (forwarded threads, relative dates, tables, several lines per email, typos in PO numbers). Synthetic; not real correspondence.",
+  "messages": [
+    {
+      "id": "hard-01",
+      "channel": "email",
+      "from": "sales@charlie-03.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "FW: Re: PO 250059",
+      "body": "王工，刚和车间确认，LNS-81807-A 那135片镀膜要返工，最快12月3日出货。\n\n-----原始邮件-----\n发件人：采购部\n日期：2026-09-13\n主题：PO 250059\n请确认第3项交期 2026-11-20 没问题。",
+      "date": "2026-10-27T10:00:00Z"
+    },
+    {
+      "id": "hard-02",
+      "channel": "email",
+      "from": "sales@alpha-01.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: 250020",
+      "body": "两项都顺延一周交货，抱歉。\n\n李经理\nAlpha",
+      "date": "2026-10-28T10:00:00Z"
+    },
+    {
+      "id": "hard-03",
+      "channel": "email",
+      "from": "ken@glass-09.example.jp",
+      "from_name": "Ken",
+      "to": "purchasing@mloptic.example",
+      "subject": "Your order 250141 - updated schedule",
+      "body": "Dear buyer,\n\nBLK-STD-022 will ship as planned on Nov 3. However BLK-STD-001 is delayed; we now expect Nov 18.\n\nBest regards,\nKen\nGlass maker JP",
+      "date": "2026-10-24T10:00:00Z"
+    },
+    {
+      "id": "hard-04",
+      "channel": "email",
+      "from": "sales@glass-10.example.cn",
+      "from_name": "张经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "报价更新 PO 250159",
+      "body": "因玻璃原料涨价，以下物料单价调整：\nBLK-STD-009  728.13 → 765.00\nBLK-STD-020  417.08 → 438.00\n请贵司更新系统。\n\n张经理\nGlass distributor CN",
+      "date": "2026-10-22T10:00:00Z"
+    },
+    {
+      "id": "hard-05",
+      "channel": "email",
+      "from": "sales@pcba-23.example.cn",
+      "from_name": "陈工",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO#250394 发货",
+      "body": "今天发了PCB-33625-B 23片，PCB-27758-C 还要等料，预计11月21日。\n\n陈工\nPCBA EMS Shenzhen",
+      "date": "2026-10-26T10:00:00Z"
+    },
+    {
+      "id": "hard-06",
+      "channel": "email",
+      "from": "sales@optics-14.example.cn",
+      "from_name": "刘",
+      "to": "purchasing@mloptic.example",
+      "subject": "收到",
+      "body": "收到 250242 三项都没问题\n\n刘\nOptics shop Hubei",
+      "date": "2026-10-09T10:00:00Z"
+    },
+    {
+      "id": "hard-07",
+      "channel": "email",
+      "from": "328876123@qq.com",
+      "from_name": "小刘",
+      "to": "purchasing@mloptic.example",
+      "subject": "LNS-36635-C",
+      "body": "我们这边材料到了，LNS-36635-C 可以提前到11月15日交。\n\n小刘\nJiangsu B 光学",
+      "date": "2026-10-25T10:00:00Z"
+    },
+    {
+      "id": "hard-08",
+      "channel": "email",
+      "from": "sales@delta-04.example.cn",
+      "from_name": "王经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "PLT-32483-C 交货",
+      "body": "PLT-32483-C 出货前自检发现8片膜层不良，补做后11月25日一起发。\n\n王经理\nDelta",
+      "date": "2026-10-29T10:00:00Z"
+    },
+    {
+      "id": "hard-09",
+      "channel": "email",
+      "from": "sales@cnc-18.example.cn",
+      "from_name": "李",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: PO 250344 第2项",
+      "body": "MEC-22462-A 34件已于今天顺丰发出，单号SF9876543210。\n\n李\nCNC shop Suzhou",
+      "date": "2026-10-30T10:00:00Z"
+    },
+    {
+      "id": "hard-10",
+      "channel": "email",
+      "from": "sales@small-49.example.cn",
+      "from_name": "陈经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "通知",
+      "body": "由于铜价上涨，PO 250543 两款PCBA单价上调5%，自本单起执行。\n\n陈经理\nSmall supplier CN-23",
+      "date": "2026-10-23T10:00:00Z"
+    },
+    {
+      "id": "hard-11",
+      "channel": "email",
+      "from": "sales@charlie-03.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "关于PO 250060 的发票",
+      "body": "附件是PO 250060的发票，请查收。\n\n王\nCharlie",
+      "date": "2026-10-21T10:00:00Z"
+    },
+    {
+      "id": "hard-12",
+      "channel": "email",
+      "from": "sales@charlie-03.example.cn",
+      "from_name": "王",
+      "to": "purchasing@mloptic.example",
+      "subject": "Re: PRS-45411-A 能否提前？",
+      "body": "不行，还是按原计划11月11日。\n\n王\nCharlie",
+      "date": "2026-10-27T10:00:00Z"
+    },
+    {
+      "id": "hard-13",
+      "channel": "email",
+      "from": "ken@glass-09.example.jp",
+      "from_name": "Ken",
+      "to": "purchasing@mloptic.example",
+      "subject": "PO 250414 BLK-STD-013",
+      "body": "Hi, BLK-STD-013 is delayed until Nov 12 due to annealing capacity.\n\nKen\nGlass maker JP",
+      "date": "2026-10-26T10:00:00Z"
+    },
+    {
+      "id": "hard-14",
+      "channel": "email",
+      "from": "sales@alpha-01.example.cn",
+      "from_name": "李经理",
+      "to": "purchasing@mloptic.example",
+      "subject": "PRS-39927-C",
+      "body": "PRS-39927-C 这周先发24件，剩下24件下周。\n\n李经理\nAlpha",
+      "date": "2026-10-28T10:00:00Z"
+    }
+  ],
+  "labels": [
+    {
+      "message_id": "hard-01",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250059",
+          "po_id": "b1-po-59",
+          "line_id": "b1-po-59-2",
+          "line_no": 3,
+          "part_number": "LNS-81807-A",
+          "date": "2026-12-03"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-02",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250020",
+          "po_id": "b1-po-20",
+          "line_id": "b1-po-20-0",
+          "line_no": 1,
+          "date": "2026-11-16"
+        },
+        {
+          "type": "date_change",
+          "po_number": "250020",
+          "po_id": "b1-po-20",
+          "line_id": "b1-po-20-1",
+          "line_no": 2,
+          "date": "2026-11-16"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-03",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250141",
+          "po_id": "b1-po-141",
+          "line_id": "b1-po-141-1",
+          "line_no": 2,
+          "part_number": "BLK-STD-001",
+          "date": "2026-11-18"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-04",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250159",
+          "po_id": "b1-po-159",
+          "line_id": "b1-po-159-0",
+          "line_no": 1,
+          "price": 765.0
+        },
+        {
+          "type": "price_change",
+          "po_number": "250159",
+          "po_id": "b1-po-159",
+          "line_id": "b1-po-159-1",
+          "line_no": 2,
+          "price": 438.0
+        }
+      ]
+    },
+    {
+      "message_id": "hard-05",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250394",
+          "po_id": "b1-po-394",
+          "line_id": "b1-po-394-0",
+          "line_no": 1,
+          "part_number": "PCB-27758-C",
+          "date": "2026-11-21"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-06",
+      "events": [
+        {
+          "type": "ack",
+          "po_number": "250242",
+          "po_id": "b1-po-242"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-07",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "",
+          "po_id": "b1-po-222",
+          "line_id": "b1-po-222-0",
+          "line_no": 1,
+          "part_number": "LNS-36635-C",
+          "date": "2026-11-15"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-08",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "",
+          "po_id": "b1-po-78",
+          "line_id": "b1-po-78-0",
+          "line_no": 1,
+          "part_number": "PLT-32483-C",
+          "date": "2026-11-25"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-09",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "250344",
+          "po_id": "b1-po-344",
+          "line_id": "b1-po-344-1",
+          "line_no": 2,
+          "qty": 34.0
+        }
+      ]
+    },
+    {
+      "message_id": "hard-10",
+      "events": [
+        {
+          "type": "price_change",
+          "po_number": "250543",
+          "po_id": "b1-po-543",
+          "line_id": "b1-po-543-0",
+          "line_no": 1,
+          "price": 130.57
+        },
+        {
+          "type": "price_change",
+          "po_number": "250543",
+          "po_id": "b1-po-543",
+          "line_id": "b1-po-543-1",
+          "line_no": 2,
+          "price": 72.4
+        }
+      ]
+    },
+    {
+      "message_id": "hard-11",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-12",
+      "events": [
+        {
+          "type": "other"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-13",
+      "events": [
+        {
+          "type": "date_change",
+          "po_number": "250140",
+          "po_id": "b1-po-140",
+          "line_id": "b1-po-140-0",
+          "line_no": 1,
+          "part_number": "BLK-STD-013",
+          "date": "2026-11-12"
+        }
+      ]
+    },
+    {
+      "message_id": "hard-14",
+      "events": [
+        {
+          "type": "partial_ship",
+          "po_number": "",
+          "po_id": "b1-po-20",
+          "line_id": "b1-po-20-0",
+          "line_no": 1,
+          "part_number": "PRS-39927-C",
+          "qty": 24.0
+        }
+      ]
+    }
+  ],
+  "discrepancies": []
+}

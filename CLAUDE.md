@@ -11,9 +11,20 @@ customer's POs and supplier communication and keeps orders moving: PO
 confirmation, delivery tracking, exception handling, supplier analytics.
 
 **Current milestone (week of 2026-11-02): MLOptic demo.**
-Feature 1 is **supplier & PO scoring against the customer's own history**:
-- Supplier scorecard: delivery, price, lead time, quality, responsiveness.
-- PO assessment: are this PO's prices / lead times / terms in line with baseline?
+Feature 1 is the **PO data hub** (break the data silos between the ERP and
+supplier communication):
+- Read the ERP (read-only; first adapter shaped like SAP Business One Service
+  Layer, which MLOptic is *believed* to run, unconfirmed), supplier emails, later
+  supplier files and chat.
+- Extract typed events from messages (ack, date change, partial shipment,
+  price change, quality issue), resolve them to PO lines, and build **one
+  timeline per PO with source citations**.
+- Produce the daily **对不上清单** (discrepancies: supplier date ≠ ERP, price
+  not in ERP, shipped-not-received, overdue with no update, unacknowledged).
+- Uncertain matches go to a **review queue**, never onto a timeline. A wrong
+  entry on a timeline is worse than a missing one.
+- Supplier & PO **scoring consumes the hub** (enriched data: first confirmed
+  date, acknowledgments) and is feature 2.
 
 ## Hard rules
 
@@ -23,17 +34,21 @@ Feature 1 is **supplier & PO scoring against the customer's own history**:
 2. **Every score has evidence** (PO number + line + the numbers used).
    What each score is compared against (which suppliers, orders and dates)
    is defined in `docs/scoring-methodology.md`.
-3. **No real customer data in git, in prompts to third parties, or in cloud
-   agent sandboxes.** Use `evals/data/synthetic_mloptic.json`. Real sanitized
+3. **Never put an uncertain match on a timeline.** Below the review threshold,
+   unknown sender, PO of another supplier, ambiguous line: review queue.
+4. **No real customer data in git, in prompts to third parties, or in cloud
+   agent sandboxes.** (The LLM extractor may send customer email to the LLM
+   provider only once the customer has approved it in writing.) Use
+   `evals/data/synthetic_mloptic.json`. Real sanitized
    exports live outside the repo (`evals/data/customer/` is gitignored).
-4. **No production credentials** in code, tests, CI or agent sessions.
-5. **Replay must not peek into the future.** Anything scored "as of" a date
+5. **No production credentials** in code, tests, CI or agent sessions.
+6. **Replay must not peek into the future.** Anything scored "as of" a date
    only sees receipts/acks on or before that date (`asOfView`).
-6. **Temporal workflow code is deterministic**: no `time.Now`, I/O, goroutines,
+7. **Temporal workflow code is deterministic**: no `time.Now`, I/O, goroutines,
    random, or map-order dependence in workflow functions. Use `workflow.Now`,
    activities, `workflow.Go`. Changing an existing workflow's sequence of
    commands requires `workflow.GetVersion`.
-7. Scoring curves are documented in `docs/scoring-methodology.md`. Change the
+8. Scoring curves are documented in `docs/scoring-methodology.md`. Change the
    code and the doc in the same PR.
 
 ## Architecture (decided; don't relitigate in a PR)
@@ -62,12 +77,18 @@ internal/store/postgres   pgx impl + embedded migrations
 internal/workflows  Temporal workflows + activities
 internal/temporalx  Temporal client from env
 internal/api        HTTP handlers (stdlib only)
+internal/connectors/erp   ERP readers: Reader interface, SAP B1 Service Layer client + fixture reader (stdlib)
+internal/inbox      supplier messages, event types, golden labels (stdlib)
+internal/extract    message -> events: Rules baseline (zh/en) + LLM (Anthropic API, never in CI) (stdlib)
+internal/match      events -> ERP PO lines, confidence, review routing (stdlib)
+internal/timeline   per-PO timeline, discrepancy detection, Hub (stdlib)
 evals/              replay evals; must stay green
 docs/               methodology + customer data spec
 ```
 
-Keep `domain`, `scoring`, `service`, `store` (not `store/postgres`) and `api`
-free of third-party imports so they build anywhere.
+Keep `domain`, `scoring`, `service`, `store` (not `store/postgres`), `api`,
+`connectors/erp`, `inbox`, `extract`, `match` and `timeline` free of
+third-party imports so they build anywhere.
 
 ## Commands
 
@@ -80,8 +101,16 @@ make infra    # local Postgres + Temporal (docker compose)
 make seed     # load synthetic data into Postgres
 ```
 
-API: `GET /v1/suppliers`, `GET /v1/suppliers/{id}/scorecard?as_of=YYYY-MM-DD`,
-`GET /v1/pos/{id}/assessment?as_of=`, `POST /v1/scoring/runs`.
+API: `GET /v1/pos/{id}/timeline?as_of=`, `GET /v1/discrepancies?as_of=&kind=`,
+`GET /v1/review-queue?as_of=`, `GET /v1/suppliers`,
+`GET /v1/suppliers/{id}/scorecard?as_of=YYYY-MM-DD`, `GET /v1/pos/{id}/assessment?as_of=`,
+`POST /v1/scoring/runs`.
+
+Evals that must stay green: `evals/persona_eval_test.go` (scoring) and
+`evals/hub_eval_test.go` (extraction / matching / discrepancies on
+`evals/data/emails.json`, plus the hand-written `emails_hard.json` where the
+bar is "≤2 confidently wrong timeline entries"). The templated corpus
+overstates accuracy; do not tune rules to it.
 
 ## How agents pick up and ship work
 

@@ -1,15 +1,20 @@
 package api
 
 import (
+	"context"
 	"encoding/json"
 	"net/http"
 	"net/http/httptest"
 	"testing"
 	"time"
 
+	"github.com/zigeH/arribo-procurement/internal/connectors/erp"
+	"github.com/zigeH/arribo-procurement/internal/extract"
+	"github.com/zigeH/arribo-procurement/internal/inbox"
 	"github.com/zigeH/arribo-procurement/internal/scoring"
 	"github.com/zigeH/arribo-procurement/internal/service"
 	"github.com/zigeH/arribo-procurement/internal/store"
+	"github.com/zigeH/arribo-procurement/internal/timeline"
 )
 
 var (
@@ -70,4 +75,40 @@ func TestEndpoints(t *testing.T) {
 	if res.StatusCode != 503 {
 		t.Fatalf("run without temporal = %d, want 503", res.StatusCode)
 	}
+}
+
+func TestHubEndpoints(t *testing.T) {
+	c, err := inbox.LoadCorpus("../../evals/data/emails.json")
+	if err != nil {
+		t.Fatal(err)
+	}
+	h, err := timeline.Load(context.Background(), erp.FixtureReader{Dir: "../../evals/data/b1"}, c.Messages, extract.Rules{})
+	if err != nil {
+		t.Fatal(err)
+	}
+	asOf := c.Messages[len(c.Messages)-1].Date
+	s := &Server{Svc: &service.Service{Store: store.NewMemory(h.EnrichedDataset("t", asOf)), Cfg: scoring.DefaultConfig()}, Hub: h, Now: func() time.Time { return asOf }}
+	srv := httptest.NewServer(s.Handler())
+	defer srv.Close()
+
+	var dl struct {
+		Count int
+		Items []timeline.Discrepancy
+	}
+	get(t, srv.URL+"/v1/discrepancies", 200, &dl)
+	if dl.Count == 0 || len(dl.Items[0].Sources) == 0 {
+		t.Fatalf("discrepancies: %+v", dl)
+	}
+	var tl timeline.Timeline
+	get(t, srv.URL+"/v1/pos/"+dl.Items[0].POID+"/timeline", 200, &tl)
+	if len(tl.Entries) == 0 {
+		t.Fatal("empty timeline")
+	}
+	get(t, srv.URL+"/v1/pos/"+tl.PONumber+"/timeline", 200, nil) // by PO number too
+	get(t, srv.URL+"/v1/pos/nope/timeline", 404, nil)
+	get(t, srv.URL+"/v1/review-queue", 200, nil)
+
+	noHub := httptest.NewServer((&Server{Svc: s.Svc}).Handler())
+	defer noHub.Close()
+	get(t, noHub.URL+"/v1/discrepancies", 503, nil)
 }

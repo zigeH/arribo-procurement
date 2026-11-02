@@ -14,6 +14,7 @@ import (
 
 	"github.com/zigeH/arribo-procurement/internal/api"
 	"github.com/zigeH/arribo-procurement/internal/bootstrap"
+	"github.com/zigeH/arribo-procurement/internal/store"
 	"github.com/zigeH/arribo-procurement/internal/temporalx"
 )
 
@@ -28,7 +29,22 @@ func main() {
 	}
 	defer closeStore()
 
-	srv := &api.Server{Svc: svc, AllowOrigin: os.Getenv("CORS_ORIGIN")}
+	hub, err := bootstrap.Hub(ctx)
+	if err != nil {
+		slog.Error("init PO data hub", "err", err)
+		os.Exit(1)
+	}
+	if hub != nil && os.Getenv("DATABASE_URL") == "" {
+		// Scoring consumes the hub: ERP data enriched with supplier facts.
+		svc.Store = store.NewMemory(hub.EnrichedDataset("hub", time.Now().UTC()))
+	}
+	srv := &api.Server{Svc: svc, Hub: hub, AllowOrigin: os.Getenv("CORS_ORIGIN")}
+	if v := os.Getenv("DEMO_AS_OF"); v != "" {
+		if t, err := time.Parse("2006-01-02", v); err == nil {
+			asOf := t.Add(24*time.Hour - time.Second)
+			srv.Now = func() time.Time { return asOf }
+		}
+	}
 	if temporalx.Enabled() {
 		c, err := temporalx.Dial()
 		if err != nil {
