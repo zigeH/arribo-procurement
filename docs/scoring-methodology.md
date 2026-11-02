@@ -7,23 +7,37 @@ unless a source is configured and cited.
 
 ## Baseline
 
-For a PO line, the baseline is the **median** of all *other* lines for the
-same part number and currency, ordered within the window (default 18 months),
-excluding lines on the same PO. A baseline is published only with at least
-`MinComparables` (default 3) comparable lines; otherwise the line is
-"no_baseline" and is not scored.
+For a PO line, the **price baseline** is the median unit price paid to **other
+suppliers** for the same part number and currency, ordered within the window
+(default 18 months). A supplier is never benchmarked against its own history
+(that always looks "normal" and hides a premium). With fewer than
+`MinComparables` (default 3) such purchases, the line is "no_baseline" and is
+not price-scored: typical for single-sourced custom parts.
+
+The **lead-time baseline** is the median quoted lead time (first confirmed date
+− order date) of other suppliers' **repeat** orders of the same part. A
+supplier's first order of a part (first article) is excluded on both sides,
+since new parts legitimately take longer.
+
+**On-time delivery** is measured against the **first** date the supplier
+confirmed (`original_promised_date` when the date was later moved). Moved dates
+are shown in evidence and flagged when frequent. As of a date, a move counts
+only if it had happened by then (`promise_changed_at`); when that timestamp is
+missing, only lines already delivered by the as-of date show the move.
 
 All scoring is "as of" a date: receipts and acknowledgments after that date
-are ignored, so historical replays show what was knowable at the time.
+are ignored, so historical replays show what was knowable at the time. First
+order of a part is decided from all history up to the as-of date, not just the
+window, so a part bought before the window is not treated as new.
 
 ## Supplier scorecard dimensions
 
 | Dimension | Measure | Curve (0–100) | Weight |
 |---|---|---|---|
-| Delivery | Line delivered (full qty received) by promised date + 2 days grace; open lines past due count as late | 100 on time, 0 late; averaged over lines | 0.35 |
-| Price | unit price / same-part median | ≤1.0 → 100; −2.5 pts per 1% above (1.2 → 50, 1.4 → 0); spend-weighted | 0.25 |
+| Delivery | Line delivered (full qty received) by first confirmed date + 2 days grace; open lines past due count as late | 100 on time, 0 late; averaged over lines | 0.35 |
+| Price | unit price / other suppliers' median for the same part | ≤1.0 → 100; −2.5 pts per 1% above (1.2 → 50, 1.4 → 0); spend-weighted | 0.25 |
 | Quality | rejected / received units | 100 − 1 pt per 0.1% (1% → 90, 5% → 50) | 0.20 |
-| Lead time | quoted days (promised − order date) / same-part median | ≤1.0 → 100; −1.5 pts per 1% slower | 0.10 |
+| Lead time | quoted days (first confirmed − order date) / other suppliers' repeat-order median; first orders excluded | ≤1.0 → 100; −1.5 pts per 1% slower | 0.10 |
 | Responsiveness | hours from PO sent to acknowledgment | ≤24h 100 → 72h 70 → 168h 20; >168h 10; unacked >72h 0 | 0.10 |
 
 **Overall** = weighted mean of dimensions that have a score (weights renormalized).
@@ -35,16 +49,18 @@ weighted average cannot hide a critical weakness.
 **Confidence** by lines in window: < 10 low, < 30 medium, else high.
 
 Flags: `overdue_open_lines` (alert), `high_reject_rate` (>3%, warn),
-`unacknowledged_pos` (warn), `price_no_baseline` (info), `grade_capped` (warn).
+`unacknowledged_pos` (warn), `price_no_baseline` (info), `grade_capped` (warn),
+`frequent_date_changes` (warn, >20% of due lines had the date moved).
 
 ## PO assessment
 
 Per line: price and lead-time verdicts vs baseline
 - price: `below` (< −10%), `in_range` (±10%), `above` (+10–20%), `far_above` (> +20%)
-- lead: `faster` (< −20%), `in_range` (±20%), `slower` (+20–40%), `much_slower` (> +40%)
+- lead: `faster` (< −20%), `in_range` (±20%), `slower` (+20–40%), `much_slower` (> +40%),
+  `first_order` (supplier's first order of this part: not compared)
 
 Terms are checked only against rules in the customer's `Policy`, each citing
-its source. With no policy configured, no term checks run.
+its source. Payment terms parse both "Net N" and "月结N天". With no policy configured, no term checks run.
 
 PO score = weighted mean of: price (0.40), lead time (0.20), terms (0.10),
 supplier historical overall (0.30), over the parts that are available.
@@ -59,3 +75,8 @@ is C, or no line could be price-benchmarked; else `ok`.
 - Is +10% the right "in range" band for optics parts? For coatings/services?
 - Which failures matter most: late delivery or quality? (sets weights)
 - Purchasing policy: allowed Incoterms, minimum Net days, maximum deposit.
+- Single-sourced custom parts can't be price-benchmarked against other
+  suppliers. Should we compare by spec (material, size, tolerance, coating),
+  track each part's own price trend, or use a should-cost model?
+- Is "first confirmed date" the right on-time reference for MLOptic, or do
+  they accept supplier date changes they approved?

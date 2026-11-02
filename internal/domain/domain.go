@@ -35,8 +35,23 @@ type POLine struct {
 	Description  string    `json:"description,omitempty"`
 	Qty          float64   `json:"qty"`
 	UnitPrice    float64   `json:"unit_price"`
-	PromisedDate time.Time `json:"promised_date"` // supplier-confirmed delivery date
-	Receipts     []Receipt `json:"receipts,omitempty"`
+	PromisedDate time.Time `json:"promised_date"` // latest supplier-confirmed delivery date
+	// OriginalPromisedDate is the first date the supplier confirmed, if the
+	// promise was later moved. Nil means it never changed.
+	OriginalPromisedDate *time.Time `json:"original_promised_date,omitempty"`
+	// PromiseChangedAt is when the supplier moved the date (nil if unknown or
+	// never moved). Replay uses it so a move is only visible after it happened.
+	PromiseChangedAt *time.Time `json:"promise_changed_at,omitempty"`
+	Receipts         []Receipt  `json:"receipts,omitempty"`
+}
+
+// CommitDate is the first supplier-confirmed date: what on-time delivery and
+// quoted lead time are measured against, so moving a date doesn't hide a slip.
+func (l POLine) CommitDate() time.Time {
+	if l.OriginalPromisedDate != nil {
+		return *l.OriginalPromisedDate
+	}
+	return l.PromisedDate
 }
 
 // Receipt is a (partial) delivery against a PO line, including inspection result.

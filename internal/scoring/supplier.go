@@ -11,8 +11,9 @@ import (
 const maxEvidence = 20
 
 // asOfView returns a copy of the PO as it would have looked at asOf: receipts
-// and acknowledgments after asOf are dropped. This is what makes historical
-// replay honest (no peeking into the future).
+// and acknowledgments after asOf are dropped, and a promised-date move is
+// hidden unless it is known to have happened by asOf. This is what makes
+// historical replay honest (no peeking into the future).
 func asOfView(po domain.PurchaseOrder, asOf time.Time) domain.PurchaseOrder {
 	out := po
 	if po.AcknowledgedAt != nil && po.AcknowledgedAt.After(asOf) {
@@ -27,7 +28,35 @@ func asOfView(po domain.PurchaseOrder, asOf time.Time) domain.PurchaseOrder {
 				nl.Receipts = append(nl.Receipts, r)
 			}
 		}
+		if nl.OriginalPromisedDate != nil && !moveKnownBy(nl, asOf) {
+			nl.PromisedDate = *nl.OriginalPromisedDate
+			nl.OriginalPromisedDate, nl.PromiseChangedAt = nil, nil
+		}
 		out.Lines[i] = nl
+	}
+	return out
+}
+
+// moveKnownBy reports whether a promised-date move was visible at asOf. With a
+// change timestamp it must be on or before asOf. Without one we can't tell when
+// it happened, so only lines already completed by asOf (receipts are filtered
+// first) show the move.
+func moveKnownBy(l domain.POLine, asOf time.Time) bool {
+	if l.PromiseChangedAt != nil {
+		return !l.PromiseChangedAt.After(asOf)
+	}
+	_, done := l.CompletedAt()
+	return done
+}
+
+// pastOf returns POs ordered on or before asOf, with no window cutoff. Used to
+// decide first article, so a part first bought before the window isn't new.
+func pastOf(history []domain.PurchaseOrder, asOf time.Time) []domain.PurchaseOrder {
+	var out []domain.PurchaseOrder
+	for _, po := range history {
+		if !po.OrderDate.After(asOf) {
+			out = append(out, po)
+		}
 	}
 	return out
 }
@@ -49,7 +78,7 @@ func windowed(history []domain.PurchaseOrder, from, asOf time.Time) []domain.Pur
 func ScoreSupplier(supplierID string, history []domain.PurchaseOrder, asOf time.Time, cfg Config) Scorecard {
 	from := asOf.AddDate(0, -cfg.WindowMonths, 0)
 	all := windowed(history, from, asOf)
-	base := BuildBaseline(all, from, asOf)
+	base := BuildBaseline(pastOf(history, asOf), from, asOf)
 
 	var mine []domain.PurchaseOrder
 	lineCount := 0
@@ -125,37 +154,53 @@ func scoreDelivery(pos []domain.PurchaseOrder, asOf time.Time, cfg Config, flags
 	grace := time.Duration(cfg.OnTimeGraceDays) * 24 * time.Hour
 	var scores []float64
 	var ev []Evidence
-	onTime, late, overdueOpen := 0, 0, 0
+	onTime, late, overdueOpen, moved, due0 := 0, 0, 0, 0, 0
 	var lateDaysTotal float64
 	for _, po := range pos {
 		for _, l := range po.Lines {
-			if l.PromisedDate.IsZero() {
+			commit := l.CommitDate() // first confirmed date; a moved date doesn't reset the clock
+			if commit.IsZero() {
 				continue
 			}
-			due := l.PromisedDate.Add(grace)
+			note := ""
+			if l.OriginalPromisedDate != nil && !l.PromisedDate.Equal(commit) {
+				note = fmt.Sprintf(" (supplier moved date %+.0f days)", l.PromisedDate.Sub(commit).Hours()/24)
+			}
+			due := commit.Add(grace)
 			done, ok := l.CompletedAt()
 			switch {
 			case ok:
-				days := done.Sub(l.PromisedDate).Hours() / 24
+				due0++
+				if note != "" {
+					moved++
+				}
+				days := done.Sub(commit).Hours() / 24
 				if !done.After(due) {
 					onTime++
 					scores = append(scores, 100)
-					ev = append(ev, Evidence{POID: po.ID, PONumber: po.Number, LineID: l.ID, Detail: "delivered on time", Value: round1(days), Score: 100})
+					ev = append(ev, Evidence{POID: po.ID, PONumber: po.Number, LineID: l.ID, Detail: "delivered on time" + note, Value: round1(days), Score: 100})
 				} else {
 					late++
 					lateDaysTotal += days
 					scores = append(scores, 0)
-					ev = append(ev, Evidence{POID: po.ID, PONumber: po.Number, LineID: l.ID, Detail: fmt.Sprintf("delivered %.0f days late", days), Value: round1(days), Score: 0})
+					ev = append(ev, Evidence{POID: po.ID, PONumber: po.Number, LineID: l.ID, Detail: fmt.Sprintf("delivered %.0f days after first confirmed date%s", days, note), Value: round1(days), Score: 0})
 				}
 			case asOf.After(due):
+				due0++
+				if note != "" {
+					moved++
+				}
 				late++
 				overdueOpen++
-				days := asOf.Sub(l.PromisedDate).Hours() / 24
+				days := asOf.Sub(commit).Hours() / 24
 				lateDaysTotal += days
 				scores = append(scores, 0)
-				ev = append(ev, Evidence{POID: po.ID, PONumber: po.Number, LineID: l.ID, Detail: fmt.Sprintf("open and %.0f days past promised date", days), Value: round1(days), Score: 0})
+				ev = append(ev, Evidence{POID: po.ID, PONumber: po.Number, LineID: l.ID, Detail: fmt.Sprintf("open and %.0f days past first confirmed date%s", days, note), Value: round1(days), Score: 0})
 			}
 		}
+	}
+	if due0 >= 5 && float64(moved)/float64(due0) > 0.2 {
+		*flags = append(*flags, Flag{Severity: "warn", Code: "frequent_date_changes", Message: fmt.Sprintf("supplier moved the confirmed date on %d of %d due lines", moved, due0)})
 	}
 	summary := "no lines due yet"
 	if n := onTime + late; n > 0 {
@@ -176,7 +221,7 @@ func scorePrice(pos []domain.PurchaseOrder, base *Baseline, cfg Config, flags *[
 	noBaseline := 0
 	for _, po := range pos {
 		for _, l := range po.Lines {
-			med, n := base.PriceFor(l.PartNumber, po.Currency, po.ID)
+			med, n := base.PriceFor(l.PartNumber, po.Currency, po.SupplierID)
 			if n < cfg.MinComparables || med <= 0 {
 				noBaseline++
 				continue
@@ -186,13 +231,13 @@ func scorePrice(pos []domain.PurchaseOrder, base *Baseline, cfg Config, flags *[
 			scores = append(scores, s)
 			weights = append(weights, l.UnitPrice*l.Qty) // spend-weighted
 			ev = append(ev, Evidence{POID: po.ID, PONumber: po.Number, LineID: l.ID,
-				Detail: fmt.Sprintf("%s at %.2f vs median %.2f (%+.0f%%, n=%d)", l.PartNumber, l.UnitPrice, med, (r-1)*100, n),
+				Detail: fmt.Sprintf("%s at %.2f vs other suppliers' median %.2f (%+.0f%%, n=%d)", l.PartNumber, l.UnitPrice, med, (r-1)*100, n),
 				Value:  l.UnitPrice, Baseline: round1(med*100) / 100, Score: round1(s)})
 		}
 	}
-	summary := fmt.Sprintf("%d line(s) compared to same-part median", len(scores))
+	summary := fmt.Sprintf("%d line(s) compared to other suppliers' median for the same part", len(scores))
 	if noBaseline > 0 {
-		summary += fmt.Sprintf("; %d line(s) had fewer than %d comparables and were not scored", noBaseline, cfg.MinComparables)
+		summary += fmt.Sprintf("; %d line(s) not scored: fewer than %d purchases of the same part from other suppliers (single-sourced)", noBaseline, cfg.MinComparables)
 		if len(scores) == 0 {
 			*flags = append(*flags, Flag{Severity: "info", Code: "price_no_baseline", Message: "not enough comparable purchases to benchmark price"})
 		}
@@ -202,6 +247,7 @@ func scorePrice(pos []domain.PurchaseOrder, base *Baseline, cfg Config, flags *[
 
 func scoreLead(pos []domain.PurchaseOrder, base *Baseline, cfg Config) DimensionScore {
 	var scores []float64
+	firstArticles := 0
 	var ev []Evidence
 	for _, po := range pos {
 		for _, l := range po.Lines {
@@ -209,7 +255,11 @@ func scoreLead(pos []domain.PurchaseOrder, base *Baseline, cfg Config) Dimension
 			if ld <= 0 {
 				continue
 			}
-			med, n := base.LeadFor(l.PartNumber, po.Currency, po.ID)
+			if base.IsFirstArticle(l.ID) {
+				firstArticles++
+				continue
+			}
+			med, n := base.LeadFor(l.PartNumber, po.Currency, po.SupplierID)
 			if n < cfg.MinComparables || med <= 0 {
 				continue
 			}
@@ -217,11 +267,15 @@ func scoreLead(pos []domain.PurchaseOrder, base *Baseline, cfg Config) Dimension
 			s := leadScore(r)
 			scores = append(scores, s)
 			ev = append(ev, Evidence{POID: po.ID, PONumber: po.Number, LineID: l.ID,
-				Detail: fmt.Sprintf("%s quoted %.0f days vs median %.0f (n=%d)", l.PartNumber, ld, med, n),
+				Detail: fmt.Sprintf("%s quoted %.0f days vs other suppliers' repeat-order median %.0f (n=%d)", l.PartNumber, ld, med, n),
 				Value:  round1(ld), Baseline: round1(med), Score: round1(s)})
 		}
 	}
-	return finish(DimLeadTime, scores, nil, ev, fmt.Sprintf("%d line(s) compared to same-part median lead time", len(scores)))
+	summary := fmt.Sprintf("%d repeat-order line(s) compared to other suppliers' median lead time", len(scores))
+	if firstArticles > 0 {
+		summary += fmt.Sprintf("; %d first-order line(s) excluded", firstArticles)
+	}
+	return finish(DimLeadTime, scores, nil, ev, summary)
 }
 
 func scoreQuality(pos []domain.PurchaseOrder, flags *[]Flag) DimensionScore {

@@ -23,7 +23,10 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 			others = append(others, h)
 		}
 	}
-	base := BuildBaseline(windowed(others, from, asOf), from, asOf)
+	// The baseline includes this PO only so first article is decided for its
+	// lines with the same rule as the scorecard; price and lead benchmarks skip
+	// the PO's own supplier, so its lines never benchmark themselves.
+	base := BuildBaseline(append(pastOf(others, asOf), po), from, asOf)
 	sup := ScoreSupplier(po.SupplierID, others, asOf, cfg)
 
 	a := POAssessment{
@@ -41,7 +44,7 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 	for _, l := range po.Lines {
 		lc := LineCheck{LineID: l.ID, PartNumber: l.PartNumber, UnitPrice: l.UnitPrice, LeadDays: round1(leadDays(po, l))}
 
-		med, n := base.PriceFor(l.PartNumber, po.Currency, po.ID)
+		med, n := base.PriceFor(l.PartNumber, po.Currency, po.SupplierID)
 		lc.PriceSamples = n
 		if n >= cfg.MinComparables && med > 0 && l.UnitPrice > 0 {
 			r := l.UnitPrice / med
@@ -63,9 +66,10 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 			lc.PriceVerdict = "no_baseline"
 		}
 
-		lmed, ln := base.LeadFor(l.PartNumber, po.Currency, po.ID)
+		lmed, ln := base.LeadFor(l.PartNumber, po.Currency, po.SupplierID)
 		lc.LeadSamples = ln
-		if ld := leadDays(po, l); ln >= cfg.MinComparables && lmed > 0 && ld > 0 {
+		firstArticle := base.IsFirstArticle(l.ID)
+		if ld := leadDays(po, l); !firstArticle && ln >= cfg.MinComparables && lmed > 0 && ld > 0 {
 			r := ld / lmed
 			lc.LeadBaseline, lc.LeadRatio = ptr(round1(lmed)), ptr(round1(r*1000)/1000)
 			switch {
@@ -80,6 +84,8 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 			}
 			leadTotal += leadScore(r)
 			leadN++
+		} else if firstArticle {
+			lc.LeadVerdict = "first_order"
 		} else {
 			lc.LeadVerdict = "no_baseline"
 		}
@@ -137,7 +143,7 @@ func AssessPO(po domain.PurchaseOrder, history []domain.PurchaseOrder, asOf time
 }
 
 var (
-	reNet     = regexp.MustCompile(`(?i)net\s*(\d+)`)
+	reNet     = regexp.MustCompile(`(?i)(?:net\s*|月结\s*)(\d+)`)
 	reDeposit = regexp.MustCompile(`(\d+)\s*%\s*(deposit|advance|prepay)`)
 )
 
