@@ -39,7 +39,7 @@ Feature 1 is **supplier & PO scoring against the customer's own history**:
 | Area | Choice |
 |---|---|
 | API, worker, scoring, connectors | **Go** (this repo) |
-| Console (UI) | **TypeScript** in `console/` (not started) |
+| Console (UI) | **TypeScript** in `console/` (Next.js + Tailwind; `npm run lint && npm test && npm run build`) |
 | Voice service | Python, separate repo/service (owner: Vincent) |
 | Durable execution | **Temporal** (Temporal Cloud in prod; `temporal server start-dev` locally) |
 | Database | **Postgres** (RDS in prod), multi-tenant via `tenant_id` |
