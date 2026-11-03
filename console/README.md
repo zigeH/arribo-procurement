@@ -29,7 +29,7 @@ app/page.tsx             / = 对不上清单 (placeholder until #3)
 app/suppliers/           supplier list (GET /v1/suppliers)
 components/              Nav, AsOfPicker, ApiStatusBanner, GradeBadge
 lib/api.ts               typed API client; types mirror internal/scoring/types.go and internal/api/api.go
-lib/asof.ts, lib/format.ts
+lib/asof.ts, lib/format.ts   pure helpers (unit tests in test/, `npm test`)
 ```
 
 Rules carried over from the backend: a `null` score means "not enough data"
@@ -38,5 +38,5 @@ and is shown as such, never as 0.
 ## Checks (CI runs these)
 
 ```sh
-npm ci && npm run lint && npm run build
+npm ci && npm run lint && npm test && npm run build
 ```
